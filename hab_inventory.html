@@ -1,0 +1,1320 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HAB toxin reference panel &rarr; inventory</title>
+<style>
+  body {
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    color: #1f2937; max-width: 64rem; margin: 2rem auto; padding: 0 1rem;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.15rem; margin: 0 0 0.4rem; color: #b45309; }
+  h3 { font-size: 0.95rem; margin: 1rem 0 0.25rem; color: #1e40af; }
+  .meta { color: #475569; font-size: 0.85rem; margin-bottom: 1rem; }
+  .tier-summary { margin: 1rem 0 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tier-pill { display: inline-block; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.9rem; }
+  .filter-bar { margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  .filter-bar input, .filter-bar select {
+    padding: 0.4rem 0.7rem; font-size: 0.9rem; border: 1px solid #cbd5e1; border-radius: 4px;
+  }
+  .filter-bar input { flex: 1; min-width: 18rem; max-width: 28rem; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  th {
+    font-weight: 600; color: #1e40af; background: #f8fafc; position: sticky; top: 0;
+    cursor: pointer; user-select: none;
+  }
+  th:hover { background: #eef2ff; }
+  th.sorted-asc::after  { content: " \25B2"; opacity: 0.6; font-size: 0.8em; }
+  th.sorted-desc::after { content: " \25BC"; opacity: 0.6; font-size: 0.8em; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.85em; }
+  .right { text-align: right; }
+  .small { font-size: 0.85em; }
+  .muted { color: #64748b; }
+  .badge { display: inline-block; padding: 0.05em 0.55em; border-radius: 9999px; font-weight: 600; font-size: 0.85em; }
+  .card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem 1.25rem; background: #fcfcfd; margin: 1rem 0; }
+  .card ul { margin: 0.25rem 0; padding-left: 1.25rem; font-size: 0.9rem; }
+  code { font-family: "JetBrains Mono", ui-monospace, monospace; background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.85em; }
+  a { color: #1e40af; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer { margin-top: 2rem; color: #475569; font-size: 0.8rem; }
+</style>
+</head><body>
+<h1>HAB toxin reference panel &rarr; inventory</h1>
+<div class="meta">Generated 2026-10-19 &middot; 7 toxin references, 102 panel records (100 unique seqids) &middot;
+the <code>category: "HAB"</code> references consumed by danaSeq <code>nanopore_live --mapping_refs</code>, hand-built 2026-06-11 from NCBI nuccore searches and
+reproduced from the accession lists in <a href="https://github.com/rec3141/HABGDB/tree/main/refs">refs/</a>. Organisms are current NCBI Taxonomy names
+(<a href="https://eutils.ncbi.nlm.nih.gov/">Entrez esummary</a>); where the record title still uses an older genus it is shown in brackets.
+Outputs: <a href="hab_inventory.tsv">TSV</a> &middot; <a href="hab_inventory.json">JSON</a>.</div>
+
+<div class="tier-summary"><span class="tier-pill" style="background:#0478571a;color:#047857"><b>A</b> Complete BGC &middot; <b>35</b> (35%)</span> <span class="tier-pill" style="background:#0e74901a;color:#0e7490"><b>B</b> Partial BGC / multi-gene &middot; <b>4</b> (4%)</span> <span class="tier-pill" style="background:#ca8a041a;color:#ca8a04"><b>C</b> Single gene, complete CDS &middot; <b>16</b> (16%)</span> <span class="tier-pill" style="background:#be123c1a;color:#be123c"><b>D</b> Single-gene fragment &middot; <b>45</b> (45%)</span></div>
+
+<div class="table-wrap"><table id="summary">
+  <thead><tr>
+    <th onclick="sortBy('summary',0)">Toxin</th>
+    <th onclick="sortBy('summary',1)">Producer genera in panel (NCBI taxonomy, n seqids)</th>
+    <th class="right" onclick="sortBy('summary',2)" title="records; unique seqids / unique sequences">Records</th>
+    <th class="right" onclick="sortBy('summary',3)">Total bp</th>
+    <th onclick="sortBy('summary',4)">Tiers</th>
+    <th class="right" onclick="sortBy('summary',5)">QA flags</th>
+  </tr></thead>
+  <tbody>
+        <tr>
+          <td data-sort="microcystin"><a href="#microcystin"><b>Microcystin</b></a><br><span class="muted small">cyclic heptapeptide</span></td>
+          <td class="small"><em>Microcystis</em> (15), <em>Anabaena</em> (4), <em>Phormidium</em> (2), <em>Kaarinaea</em> (1) <span class="muted small">[title: Nostoc]</span>, <em>Planktothrix</em> (1)</td>
+          <td class="mono right" data-sort="25">25<br><span class="muted small" title="unique seqids / unique sequences">23 / 22</span></td>
+          <td class="mono right" data-sort="1107436">1.11 Mb</td>
+          <td class="small" data-sort="21"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span>&nbsp;21 <span class="badge" style="background:#0e74901a;color:#0e7490" title="Partial BGC / multi-gene">B</span>&nbsp;2</td>
+          <td class="mono right" data-sort="4">4</td>
+        </tr>
+        <tr>
+          <td data-sort="cylindrospermopsin"><a href="#cylindrospermopsin"><b>Cylindrospermopsin</b></a><br><span class="muted small">guanidine alkaloid</span></td>
+          <td class="small"><em>Cylindrospermopsis</em> (13), <em>Raphidiopsis</em> (2), <em>Aphanizomenon</em> (1), <em>Kamptonema</em> (1) <span class="muted small">[title: Oscillatoria]</span></td>
+          <td class="mono right" data-sort="17">17<br><span class="muted small" title="unique seqids / unique sequences">17 / 16</span></td>
+          <td class="mono right" data-sort="317922">317.9 kb</td>
+          <td class="small" data-sort="7"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span>&nbsp;7 <span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span>&nbsp;2 <span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span>&nbsp;8</td>
+          <td class="mono right" data-sort="5">5</td>
+        </tr>
+        <tr>
+          <td data-sort="saxitoxin"><a href="#saxitoxin"><b>Saxitoxin</b></a><br><span class="muted small">PSP alkaloid</span></td>
+          <td class="small"><em>Dolichospermum</em> (21) <span class="muted small">[title: Anabaena]</span>, <em>Cylindrospermopsis</em> (5), <em>Aphanizomenon</em> (4), <em>Microseira</em> (4) <span class="muted small">[title: Lyngbya]</span></td>
+          <td class="mono right" data-sort="34">34<br><span class="muted small" title="unique seqids / unique sequences">34 / 33</span></td>
+          <td class="mono right" data-sort="65608">65.6 kb</td>
+          <td class="small" data-sort="1"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span>&nbsp;1 <span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span>&nbsp;14 <span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span>&nbsp;19</td>
+          <td class="mono right" data-sort="6">6</td>
+        </tr>
+        <tr>
+          <td data-sort="anatoxin-a"><a href="#anatoxin_a"><b>Anatoxin-a</b></a><br><span class="muted small">tropane alkaloid</span></td>
+          <td class="small"><em>Cuspidothrix</em> (14), <em>Kamptonema</em> (3) <span class="muted small">[title: Oscillatoria]</span></td>
+          <td class="mono right" data-sort="17">17<br><span class="muted small" title="unique seqids / unique sequences">17 / 17</span></td>
+          <td class="mono right" data-sort="44388">44.4 kb</td>
+          <td class="small" data-sort="1"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span>&nbsp;1 <span class="badge" style="background:#0e74901a;color:#0e7490" title="Partial BGC / multi-gene">B</span>&nbsp;1 <span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span>&nbsp;15</td>
+          <td class="mono right" data-sort="3">3</td>
+        </tr>
+        <tr>
+          <td data-sort="nodularin"><a href="#nodularin"><b>Nodularin</b></a><br><span class="muted small">cyclic pentapeptide</span></td>
+          <td class="small"><em>Nostoc</em> (5), <em>Nodularia</em> (1)</td>
+          <td class="mono right" data-sort="6">6<br><span class="muted small" title="unique seqids / unique sequences">6 / 6</span></td>
+          <td class="mono right" data-sort="120982">121.0 kb</td>
+          <td class="small" data-sort="2"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span>&nbsp;2 <span class="badge" style="background:#0e74901a;color:#0e7490" title="Partial BGC / multi-gene">B</span>&nbsp;1 <span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span>&nbsp;3</td>
+          <td class="mono right" data-sort="4">4</td>
+        </tr>
+        <tr>
+          <td data-sort="guanitoxin"><a href="#guanitoxin"><b>Guanitoxin</b></a><br><span class="muted small">phosphoguanidine ester</span></td>
+          <td class="small"><em>Sphaerospermopsis</em> (1)</td>
+          <td class="mono right" data-sort="1">1<br><span class="muted small" title="unique seqids / unique sequences">1 / 1</span></td>
+          <td class="mono right" data-sort="13572">13.6 kb</td>
+          <td class="small" data-sort="1"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span>&nbsp;1</td>
+          <td class="mono right" data-sort="1">1</td>
+        </tr>
+        <tr>
+          <td data-sort="aetokthonotoxin"><a href="#aetokthonotoxin"><b>Aetokthonotoxin</b></a><br><span class="muted small">bis-chlorinated indole alkaloid</span></td>
+          <td class="small"><em>Aetokthonos</em> (2)</td>
+          <td class="mono right" data-sort="2">2<br><span class="muted small" title="unique seqids / unique sequences">2 / 2</span></td>
+          <td class="mono right" data-sort="46169">46.2 kb</td>
+          <td class="small" data-sort="2"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span>&nbsp;2</td>
+          <td class="mono right" data-sort="0"></td>
+        </tr></tbody>
+</table></div>
+
+<p class="small muted">Tiers (per sequence, from the NCBI record title; overrides noted per row):
+<b>A</b> Complete BGC &middot; <b>B</b> Partial BGC / multi-gene &middot; <b>C</b> Single gene, complete CDS &middot; <b>D</b> Single-gene fragment.</p>
+
+
+<section class="card" id="microcystin">
+  <h2>Microcystin <span class="muted small">&middot; <code>microcystin</code> &middot; cyclic heptapeptide</span></h2>
+  <p class="small"><b>meta.json:</b> Microcystin (mcy cluster) &middot; category <code>HAB</code> &middot; added 2026-06-11<br>
+  <b>species field:</b> <em>Microcystis aeruginosa / Planktothrix spp. / Anabaena spp.</em></p>
+  <p class="small"><b>Panel:</b> 25 records (23 unique seqids, 22 unique sequences), 1,107,436 bp &middot;
+  <b>NCBI organisms:</b> <em>Anabaena sp.</em>, <em>Kaarinaea lacus</em>, <em>Microcystis aeruginosa</em>, <em>Phormidium sp.</em>, <em>Planktothrix agardhii</em></p>
+  <p class="small"><b>Named in meta.json:</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291096">OQ291096</a><br>
+  <b>Complete BGCs (tier A):</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/MK870090.1">MK870090.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/AY212249.1">AY212249.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291097.1">OQ291097.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291096.1">OQ291096.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291095.1">OQ291095.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291094.1">OQ291094.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291093.1">OQ291093.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291092.1">OQ291092.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291091.1">OQ291091.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291090.1">OQ291090.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291089.1">OQ291089.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291088.1">OQ291088.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291087.1">OQ291087.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291086.1">OQ291086.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291085.1">OQ291085.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291084.1">OQ291084.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/KX950803.1">KX950803.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/AF183408.1">AF183408.1:992-63626</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/KC699835.1">KC699835.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/AJ536156.1">AJ536156.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/AJ441056.1">AJ441056.1</a></p>
+  <h3>Known gaps</h3><ul><li>Non-cyanobacterial mcy orthologs not yet included; add from MAG assembly when available. <span class="muted small">(meta.json notes)</span></li></ul>
+  <h3>Inclusion / exclusion decisions</h3><p class="muted small">None recorded.</p>
+  <h3>QA flags (computed)</h3><ul><li>2 seqid(s) listed twice: MK870090.1, AY212249.1 (duplicate contig names in contigs.json; reads on them get MAPQ 0)</li><li>AJ536156.1: sequence identical to row 2 (AY212249.1)</li><li>AF183408.1:992-63626 omits annotated gene(s) dnaN (1-422) of the 63,626 bp record</li><li>19 of 23 unique seqids fall in 5 near-identical group(s) (largest: 11); reads in the shared regions can get MAPQ 0 and are then dropped by danaSeq&#x27;s mapq&gt;=1 filter</li></ul>
+  <h3>Near-identical sequence groups (&ge;99.5% id over &ge;90% of the shorter)</h3><ul><li>11 sequences: <span class="mono small">AF183408.1:992-63626, OQ291084.1, OQ291085.1, OQ291086.1, OQ291087.1, OQ291089.1, OQ291091.1, OQ291092.1, OQ291094.1, OQ291095.1, OQ291097.1</span></li><li>2 sequences: <span class="mono small">AJ536156.1, AY212249.1</span></li><li>2 sequences: <span class="mono small">HM104631.1, HM104632.1</span></li><li>2 sequences: <span class="mono small">KX950803.1, MK870090.1</span></li><li>2 sequences: <span class="mono small">OQ291088.1, OQ291090.1</span></li></ul>
+  <details><summary class="small">meta.json source / notes (verbatim)</summary>
+    <p class="small"><b>source:</b> NCBI nuccore — &#x27;microcystin cluster[Title]&#x27; + curated complete sequences</p>
+    <p class="small"><b>notes:</b> 25-sequence multi-producer panel including M. aeruginosa PCC 7806 mcy cluster (OQ291096). High-priority ref for Great Lakes and Lake Winnipeg. Non-cyanobacterial mcy orthologs not yet included; add from MAG assembly when available.</p></details>
+</section>
+<section class="card" id="cylindrospermopsin">
+  <h2>Cylindrospermopsin <span class="muted small">&middot; <code>cylindrospermopsin</code> &middot; guanidine alkaloid</span></h2>
+  <p class="small"><b>meta.json:</b> Cylindrospermopsin (cyr cluster) &middot; category <code>HAB</code> &middot; added 2026-06-11<br>
+  <b>species field:</b> <em>Cylindrospermopsis raciborskii / Raphidiopsis curvata / Aphanizomenon spp. / Oscillatoria spp.</em></p>
+  <p class="small"><b>Panel:</b> 17 records (17 unique seqids, 16 unique sequences), 317,922 bp &middot;
+  <b>NCBI organisms:</b> <em>Aphanizomenon sp.</em>, <em>Cylindrospermopsis raciborskii</em>, <em>Kamptonema sp.</em>, <em>Raphidiopsis curvata</em></p>
+  <p class="small"><b>Named in meta.json:</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/FJ418586">FJ418586</a><br>
+  <b>Complete BGCs (tier A):</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/GQ385961.1">GQ385961.1:6500-54500</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139745.1">KJ139745.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139743.1">KJ139743.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139742.1">KJ139742.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/JN873921.1">JN873921.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/EU140798.1">EU140798.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/FJ418586.4">FJ418586.4</a></p>
+  <h3>Known gaps</h3><p class="muted small">None recorded.</p>
+  <h3>Inclusion / exclusion decisions</h3><ul><li>FJ418586.4 (Oscillatoria sp. PCC 6506 cyr cluster) included here as an additional diverse producer; it was taken out of the anatoxin-a search results. <span class="muted small">(meta.json source/notes)</span></li></ul>
+  <h3>QA flags (computed)</h3><ul><li>meta.json states &#x27;33-sequence&#x27; but the panel has 17 records (17 unique seqids)</li><li>source.txt states &#x27;33 cyr cluster sequences&#x27; but the panel has 17 records (17 unique seqids)</li><li>HQ682085.1: sequence identical to row 7 (HQ682086.1)</li><li>3,786 bp in 3 sequence(s) hard-masked to N relative to NCBI (KJ139745.1, EU140798.1, FJ418586.4) — exactly the annotated transposase CDSs; not documented in meta.json/source.txt</li><li>14 of 17 unique seqids fall in 1 near-identical group(s) (largest: 14); reads in the shared regions can get MAPQ 0 and are then dropped by danaSeq&#x27;s mapq&gt;=1 filter</li></ul>
+  <h3>Near-identical sequence groups (&ge;99.5% id over &ge;90% of the shorter)</h3><ul><li>14 sequences: <span class="mono small">EU140798.1, GQ385961.1:6500-54500, JN873921.1, KJ139690.1, KJ139691.1, KJ139693.1, KJ139695.1, KJ139696.1, KJ139704.1, KJ139705.1, KJ139707.1, KJ139742.1, KJ139743.1, KJ139745.1</span></li></ul>
+  <details><summary class="small">meta.json source / notes (verbatim)</summary>
+    <p class="small"><b>source:</b> NCBI nuccore — &#x27;cylindrospermopsin biosynthesis[Title]&#x27; + C. raciborskii[Organism] ESearch + FJ418586.4 (Oscillatoria PCC 6506)</p>
+    <p class="small"><b>notes:</b> 33-sequence panel. C. raciborskii range-expanding into Great Lakes basin; Aphanizomenon spp. established in Lake Winnipeg. Includes cyr cluster from Oscillatoria sp. PCC 6506 (FJ418586.4) as additional diverse producer.</p></details>
+</section>
+<section class="card" id="saxitoxin">
+  <h2>Saxitoxin <span class="muted small">&middot; <code>saxitoxin</code> &middot; PSP alkaloid</span></h2>
+  <p class="small"><b>meta.json:</b> Saxitoxin (sxt cluster) &middot; category <code>HAB</code> &middot; added 2026-06-11<br>
+  <b>species field:</b> <em>Cylindrospermopsis raciborskii T3 / Anabaena circinalis / Aphanizomenon flos-aquae</em></p>
+  <p class="small"><b>Panel:</b> 34 records (34 unique seqids, 33 unique sequences), 65,608 bp &middot;
+  <b>NCBI organisms:</b> <em>Aphanizomenon flos-aquae</em>, <em>Cylindrospermopsis raciborskii</em>, <em>Dolichospermum circinale</em>, <em>Microseira wollei</em></p>
+  <p class="small"><b>Named in meta.json:</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/DQ787200">DQ787200</a><br>
+  <b>Complete BGCs (tier A):</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/DQ787200.1">DQ787200.1:1-30300</a></p>
+  <h3>Known gaps</h3><ul><li>Gemmata massiliana (planctomycete with sxt orthologs) deferred — add as separate ref when investigating non-cyano PSP producers. <span class="muted small">(meta.json notes)</span></li></ul>
+  <h3>Inclusion / exclusion decisions</h3><ul><li>Gemmata massiliana chromosome excluded (non-cyano ortholog, too large for this panel). <span class="muted small">(meta.json source; source.txt)</span></li></ul>
+  <h3>QA flags (computed)</h3><ul><li>meta.json states &#x27;35 sequences&#x27; but the panel has 34 records (34 unique seqids)</li><li>source.txt states &#x27;35 sxt sequences&#x27; but the panel has 34 records (34 unique seqids)</li><li>named in meta.json but not in the panel: CBFDRI010000008</li><li>EU629185.1: sequence identical to row 21 (EU629189.1)</li><li>DQ787200.1:1-30300 omits annotated gene(s) sxtY (32612-33277), sxtZ (33325-34677) of the 37,606 bp record</li><li>25 of 34 unique seqids fall in 4 near-identical group(s) (largest: 8); reads in the shared regions can get MAPQ 0 and are then dropped by danaSeq&#x27;s mapq&gt;=1 filter</li></ul>
+  <h3>Near-identical sequence groups (&ge;99.5% id over &ge;90% of the shorter)</h3><ul><li>8 sequences: <span class="mono small">EU629183.1, EU629184.1, EU629185.1, EU629186.1, EU629187.1, EU629188.1, EU629189.1, EU629190.1</span></li><li>7 sequences: <span class="mono small">EU439557.1, EU439560.1, EU439561.1, EU439562.1, EU439563.1, EU439564.1, EU439565.1</span></li><li>5 sequences: <span class="mono small">DQ787200.1:1-30300, EU439556.1, EU629182.1, EU629193.1, EU629202.1</span></li><li>5 sequences: <span class="mono small">EU629195.1, EU629196.1, EU629197.1, EU629198.1, EU629199.1</span></li></ul>
+  <details><summary class="small">meta.json source / notes (verbatim)</summary>
+    <p class="small"><b>source:</b> NCBI nuccore — &#x27;saxitoxin biosynthesis gene cluster&#x27; ESearch; Gemmata massiliana chromosome excluded (non-cyano ortholog, too large for this panel)</p>
+    <p class="small"><b>notes:</b> 35 sequences: DQ787200 (complete sxt cluster, C. raciborskii T3) is the primary reference. Also includes soil metagenome contig CBFDRI010000008 (non-cyanobacterial sxt signal). Aphanizomenon gracile documented in Lake Ontario. Gemmata massiliana (planctomycete with sxt orthologs) deferred — add as separate ref when investigating non-cyano PSP producers.</p></details>
+</section>
+<section class="card" id="anatoxin_a">
+  <h2>Anatoxin-a <span class="muted small">&middot; <code>anatoxin_a</code> &middot; tropane alkaloid</span></h2>
+  <p class="small"><b>meta.json:</b> Anatoxin-a (ana cluster) &middot; category <code>HAB</code> &middot; added 2026-06-11<br>
+  <b>species field:</b> <em>Oscillatoria sp. PCC 6506 (Cuspidothrix issatschenkoi) / Cuspidothrix spp.</em></p>
+  <p class="small"><b>Panel:</b> 17 records (17 unique seqids, 17 unique sequences), 44,388 bp &middot;
+  <b>NCBI organisms:</b> <em>Cuspidothrix</em>, <em>Cuspidothrix sp.</em>, <em>Kamptonema sp.</em></p>
+  <p class="small"><b>Named in meta.json:</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/FJ477836">FJ477836</a><br>
+  <b>Complete BGCs (tier A):</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/FJ477836.2">FJ477836.2:5100-33100</a></p>
+  <h3>Known gaps</h3><ul><li>Dolichospermum spp. are primary Lake Winnipeg producers but no standalone ana cluster deposited yet — add from MAG when assembled. (The panel contains no Dolichospermum sequence.) <span class="muted small">(meta.json notes)</span></li></ul>
+  <h3>Inclusion / exclusion decisions</h3><ul><li>FJ418586.4 excluded (cyr, added to cylindrospermopsin instead). <span class="muted small">(meta.json source)</span></li></ul>
+  <h3>QA flags (computed)</h3><ul><li>named in meta.json but not in the panel: FJ418586</li><li>FJ477836.2:5100-33100 omits annotated gene(s) anaH (33188-33658) of the 34,682 bp record</li><li>14 of 17 unique seqids fall in 2 near-identical group(s) (largest: 12); reads in the shared regions can get MAPQ 0 and are then dropped by danaSeq&#x27;s mapq&gt;=1 filter</li></ul>
+  <h3>Near-identical sequence groups (&ge;99.5% id over &ge;90% of the shorter)</h3><ul><li>12 sequences: <span class="mono small">OP419960.1, OP419962.1, OP419963.1, OP419964.1, OP419966.1, OP419967.1, OP419968.1, OP419969.1, OP419970.1, OP419971.1, OP419972.1, OP481207.1</span></li><li>2 sequences: <span class="mono small">FJ477836.2:5100-33100, JF803649.1</span></li></ul>
+  <details><summary class="small">meta.json source / notes (verbatim)</summary>
+    <p class="small"><b>source:</b> NCBI nuccore — Cuspidothrix[Organism]+anatoxin[Title] + Oscillatoria PCC 6506 AND anatoxin; FJ418586.4 excluded (cyr, added to cylindrospermopsin instead)</p>
+    <p class="small"><b>notes:</b> 17 sequences including FJ477836.2 (complete ana+homoanatoxin-a cluster, Oscillatoria PCC 6506). Dolichospermum spp. are primary Lake Winnipeg producers but no standalone ana cluster deposited yet — add from MAG when assembled.</p></details>
+</section>
+<section class="card" id="nodularin">
+  <h2>Nodularin <span class="muted small">&middot; <code>nodularin</code> &middot; cyclic pentapeptide</span></h2>
+  <p class="small"><b>meta.json:</b> Nodularin (nda cluster) &middot; category <code>HAB</code> &middot; added 2026-06-11<br>
+  <b>species field:</b> <em>Nodularia spumigena</em></p>
+  <p class="small"><b>Panel:</b> 6 records (6 unique seqids, 6 unique sequences), 120,982 bp &middot;
+  <b>NCBI organisms:</b> <em>Nodularia spumigena</em>, <em>Nostoc sp.</em></p>
+  <p class="small"><b>Named in meta.json:</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/AY210783">AY210783</a><br>
+  <b>Complete BGCs (tier A):</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/AY210783.2">AY210783.2</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/MF668122.1">MF668122.1</a></p>
+  <h3>Known gaps</h3><ul><li>Baltic/brackish specialist; not yet documented in Great Lakes or Lake Winnipeg. Present for completeness and ballast water / migrating bird monitoring. <span class="muted small">(meta.json notes)</span></li></ul>
+  <h3>Inclusion / exclusion decisions</h3><ul><li>AF227755.1 excluded — Sinorhizobium sp. C5 16S rRNA, wrong sequence (not nda). <span class="muted small">(source.txt)</span></li><li>KJ462515 excluded — Pseudomonas putida J5, UNVERIFIED record; would cause false positives. <span class="muted small">(source.txt)</span></li><li>DQ842505 excluded — Nodularia spumigena AV1 ndaA, 112 bp only (too short for reliable mapping). <span class="muted small">(source.txt)</span></li></ul>
+  <h3>QA flags (computed)</h3><ul><li>meta.json states &#x27;2 complete nda cluster sequences&#x27; but the panel has 6 records (6 unique seqids)</li><li>named in meta.json but not in the panel: AF227755</li><li>meta.json source/notes (&#x27;AY210783 (NSOR10) + AF227755 (CCY9414)&#x27;, &#x27;2 complete nda cluster sequences&#x27;) predate the source.txt revision: AF227755 is listed there as excluded and the panel has 6 sequences (AY210783.2 + 5 Nostoc).</li><li>2 of 6 unique seqids fall in 1 near-identical group(s) (largest: 2); reads in the shared regions can get MAPQ 0 and are then dropped by danaSeq&#x27;s mapq&gt;=1 filter</li></ul>
+  <h3>Near-identical sequence groups (&ge;99.5% id over &ge;90% of the shorter)</h3><ul><li>2 sequences: <span class="mono small">JQ010857.1, JQ010858.1</span></li></ul>
+  <details><summary class="small">meta.json source / notes (verbatim)</summary>
+    <p class="small"><b>source:</b> NCBI nuccore — AY210783 (NSOR10) + AF227755 (CCY9414)</p>
+    <p class="small"><b>notes:</b> Baltic/brackish specialist; not yet documented in Great Lakes or Lake Winnipeg. Present for completeness and ballast water / migrating bird monitoring. 2 complete nda cluster sequences.</p></details>
+</section>
+<section class="card" id="guanitoxin">
+  <h2>Guanitoxin <span class="muted small">&middot; <code>guanitoxin</code> &middot; phosphoguanidine ester</span></h2>
+  <p class="small"><b>meta.json:</b> Guanitoxin (gnt cluster, formerly anatoxin-a(s)) &middot; category <code>HAB</code> &middot; added 2026-06-11<br>
+  <b>species field:</b> <em>Sphaerospermopsis torques-reginae ITEP-024 + non-cyanobacterial orthologs TBD</em></p>
+  <p class="small"><b>Panel:</b> 1 records (1 unique seqids, 1 unique sequences), 13,572 bp &middot;
+  <b>NCBI organisms:</b> <em>Sphaerospermopsis torques-reginae</em></p>
+  <p class="small"><b>Named in meta.json:</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/CP080598">CP080598</a><br>
+  <b>Complete BGCs (tier A):</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/CP080598.1">CP080598.1:3534366-3547937</a></p>
+  <h3>Known gaps</h3><ul><li>Non-cyanobacterial gnt-like reads already detected in Lake Winnipeg/Great Lakes samples but not yet assembled. When MAG contigs are assembled, add them here and rebuild. <span class="muted small">(meta.json notes)</span></li><li>Single producer only (Sphaerospermopsis torques-reginae ITEP-024). <span class="muted small">(accessions.tsv)</span></li></ul>
+  <h3>Inclusion / exclusion decisions</h3><ul><li>16S sequences from ITEP-026 removed to avoid cross-species false positives. <span class="muted small">(meta.json notes)</span></li><li>Whole 5.3 Mb chromosome replaced by the gnt BGC region (CP080598.1:3534366-3547937, gntJ..gntT + 500 bp flanks). <span class="muted small">(source.txt)</span></li></ul>
+  <h3>QA flags (computed)</h3><ul><li>meta.json still describes the reference as the chromosome (CP080598.1, ~5 Mb) and its notes say &#x27;The chromosome ... contains the gnt cluster embedded&#x27;; the panel actually holds the 13,572 bp gnt region (source.txt: &#x27;Previous FASTA was the whole 5.3 Mb chromosome; trimmed to BGC only&#x27;). meta.json was not updated.</li></ul>
+  <h3>Near-identical sequence groups (&ge;99.5% id over &ge;90% of the shorter)</h3><p class="muted small">None recorded.</p>
+  <details><summary class="small">meta.json source / notes (verbatim)</summary>
+    <p class="small"><b>source:</b> NCBI nuccore — Sphaerospermopsis torques-reginae[Organism] (chromosome CP080598.1 + accessory clusters)</p>
+    <p class="small"><b>notes:</b> Non-cyanobacterial gnt-like reads already detected in Lake Winnipeg/Great Lakes samples but not yet assembled. The chromosome (CP080598.1, ~5 Mb) contains the gnt cluster embedded. When MAG contigs are assembled, add them here and rebuild. 16S sequences from ITEP-026 removed to avoid cross-species false positives.</p></details>
+</section>
+<section class="card" id="aetokthonotoxin">
+  <h2>Aetokthonotoxin <span class="muted small">&middot; <code>aetokthonotoxin</code> &middot; bis-chlorinated indole alkaloid</span></h2>
+  <p class="small"><b>meta.json:</b> Aetokthonotoxin (aet/NRPS-PKS cluster) &middot; category <code>HAB</code> &middot; added 2026-06-11<br>
+  <b>species field:</b> <em>Aetokthonos hydrillicola Thurmond2011</em></p>
+  <p class="small"><b>Panel:</b> 2 records (2 unique seqids, 2 unique sequences), 46,169 bp &middot;
+  <b>NCBI organisms:</b> <em>Aetokthonos hydrillicola</em></p>
+  <p class="small"><b>Named in meta.json:</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/ON840103">ON840103</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/MT225528">MT225528</a><br>
+  <b>Complete BGCs (tier A):</b> <a href="https://www.ncbi.nlm.nih.gov/nuccore/ON840103.1">ON840103.1</a>, <a href="https://www.ncbi.nlm.nih.gov/nuccore/MT225528.1">MT225528.1</a></p>
+  <h3>Known gaps</h3><ul><li>No complete genome deposited in NCBI as of 2026-06-11 — rebuild when available. <span class="muted small">(meta.json notes)</span></li><li>Scaffold-level A. hydrillicola assemblies do exist (e.g. GCF_017591595.2, strain Thurmond2011, released 2023-09-18); none is at Complete Genome level. <span class="muted small">(NCBI Datasets, retrieved 2026-10-19)</span></li></ul>
+  <h3>Inclusion / exclusion decisions</h3><ul><li>16S/ITS sequences excluded. <span class="muted small">(source.txt)</span></li></ul>
+  <h3>QA flags (computed)</h3><p class="muted small">None recorded.</p>
+  <h3>Near-identical sequence groups (&ge;99.5% id over &ge;90% of the shorter)</h3><p class="muted small">None recorded.</p>
+  <details><summary class="small">meta.json source / notes (verbatim)</summary>
+    <p class="small"><b>source:</b> NCBI nuccore — ON840103.1 (NRPS/PKS cluster) + MT225528.1 (AETX gene cluster, complete)</p>
+    <p class="small"><b>notes:</b> Epiphyte on Hydrilla verticillata. Linked to Vacuolar Myelinopathy (VM) in bald eagles and waterfowl. Hydrilla established in parts of Great Lakes basin. 2 sequences: MT225528 is the specific AETX cluster; ON840103 is the broader NRPS/PKS region. No complete genome deposited in NCBI as of 2026-06-11 — rebuild when available.</p></details>
+</section>
+
+<h2 style="margin-top:2rem">All panel sequences</h2>
+<div class="filter-bar">
+  <input id="filter" placeholder="Filter (accession, organism, title, note)" oninput="applyFilters()">
+  <select id="refFilter" onchange="applyFilters()"><option value="">All toxins</option><option value="microcystin">Microcystin (25)</option><option value="cylindrospermopsin">Cylindrospermopsin (17)</option><option value="saxitoxin">Saxitoxin (34)</option><option value="anatoxin_a">Anatoxin-a (17)</option><option value="nodularin">Nodularin (6)</option><option value="guanitoxin">Guanitoxin (1)</option><option value="aetokthonotoxin">Aetokthonotoxin (2)</option></select>
+  <select id="tierFilter" onchange="applyFilters()"><option value="">All tiers</option><option value="A">A — Complete BGC</option><option value="B">B — Partial BGC / multi-gene</option><option value="C">C — Single gene, complete CDS</option><option value="D">D — Single-gene fragment</option></select>
+</div>
+<div class="table-wrap"><table id="seqs">
+  <thead><tr>
+    <th onclick="sortBy('seqs',0)">Toxin</th>
+    <th class="right" onclick="sortBy('seqs',1)">#</th>
+    <th onclick="sortBy('seqs',2)">Tier</th>
+    <th onclick="sortBy('seqs',3)">Seqid</th>
+    <th onclick="sortBy('seqs',4)">Organism (NCBI)</th>
+    <th class="right" onclick="sortBy('seqs',5)">Length</th>
+    <th onclick="sortBy('seqs',6)">Title</th>
+    <th onclick="sortBy('seqs',7)">Notes</th>
+  </tr></thead>
+  <tbody id="rows">
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="1">1</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="MK870090.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/MK870090.1">MK870090.1</a></td>
+          <td class="small" data-sort="phormidium sp. lp904c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2579162"><em>Phormidium sp. LP904c</em></a></td>
+          <td class="mono right" data-sort="54162">54.2 kb</td>
+          <td class="small">Phormidium sp. LP904c microcystin biosynthesis gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="2">2</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="AY212249.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/AY212249.1">AY212249.1</a></td>
+          <td class="small" data-sort="anabaena sp. 90"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=46234"><em>Anabaena sp. 90</em></a></td>
+          <td class="mono right" data-sort="57817">57.8 kb</td>
+          <td class="small">Anabaena sp. 90 hypothetical protein genes, complete cds; microcystin biosynthesis gene cluster, complete sequence; and putative transposase (atn1) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="3">3</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291097.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291097.1">OQ291097.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa nj01"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054865"><em>Microcystis aeruginosa NJ01</em></a></td>
+          <td class="mono right" data-sort="45269">45.3 kb</td>
+          <td class="small">Microcystis aeruginosa NJ01 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="4">4</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291096.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291096.1">OQ291096.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa pcc 7806"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=267872"><em>Microcystis aeruginosa PCC 7806</em></a></td>
+          <td class="mono right" data-sort="45256">45.3 kb</td>
+          <td class="small">Microcystis aeruginosa PCC 7806 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="5">5</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291095.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291095.1">OQ291095.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-2213"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054864"><em>Microcystis aeruginosa FACHB-2213</em></a></td>
+          <td class="mono right" data-sort="24110">24.1 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-2213 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="6">6</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291094.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291094.1">OQ291094.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-1752"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054863"><em>Microcystis aeruginosa FACHB-1752</em></a></td>
+          <td class="mono right" data-sort="31155">31.2 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-1752 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="7">7</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291093.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291093.1">OQ291093.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-1338"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054862"><em>Microcystis aeruginosa FACHB-1338</em></a></td>
+          <td class="mono right" data-sort="33076">33.1 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-1388 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted">title organism differs from NCBI organism &#x27;Microcystis aeruginosa FACHB-1338&#x27;</td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="8">8</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291092.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291092.1">OQ291092.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-1326"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054861"><em>Microcystis aeruginosa FACHB-1326</em></a></td>
+          <td class="mono right" data-sort="54526">54.5 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-1326 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="9">9</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291091.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291091.1">OQ291091.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-1322"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054860"><em>Microcystis aeruginosa FACHB-1322</em></a></td>
+          <td class="mono right" data-sort="44505">44.5 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-1322 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="10">10</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291090.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291090.1">OQ291090.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-1174"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054859"><em>Microcystis aeruginosa FACHB-1174</em></a></td>
+          <td class="mono right" data-sort="44539">44.5 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-1174 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="11">11</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291089.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291089.1">OQ291089.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-975"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2340787"><em>Microcystis aeruginosa FACHB-975</em></a></td>
+          <td class="mono right" data-sort="50713">50.7 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-975 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="12">12</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291088.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291088.1">OQ291088.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-939"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3054858"><em>Microcystis aeruginosa FACHB-939</em></a></td>
+          <td class="mono right" data-sort="20199">20.2 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-939 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="13">13</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291087.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291087.1">OQ291087.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-913"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=267874"><em>Microcystis aeruginosa FACHB-913</em></a></td>
+          <td class="mono right" data-sort="42315">42.3 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-913 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="14">14</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291086.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291086.1">OQ291086.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-912"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=267871"><em>Microcystis aeruginosa FACHB-912</em></a></td>
+          <td class="mono right" data-sort="54464">54.5 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-912 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="15">15</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291085.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291085.1">OQ291085.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-911"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=267877"><em>Microcystis aeruginosa FACHB-911</em></a></td>
+          <td class="mono right" data-sort="54549">54.5 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-911 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="16">16</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="OQ291084.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OQ291084.1">OQ291084.1</a></td>
+          <td class="small" data-sort="microcystis aeruginosa fachb-905 = dianchi905"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=267865"><em>Microcystis aeruginosa FACHB-905 = DIANCHI905</em></a></td>
+          <td class="mono right" data-sort="33864">33.9 kb</td>
+          <td class="small">Microcystis aeruginosa FACHB-905 = DIANCHI905 microcystin synthetase gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="17">17</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="KX950803.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KX950803.1">KX950803.1</a></td>
+          <td class="small" data-sort="phormidium sp. lp904e"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2027342"><em>Phormidium sp. LP904e</em></a></td>
+          <td class="mono right" data-sort="56521">56.5 kb</td>
+          <td class="small">Phormidium sp. LP904e microcystin hepatotoxin biosynthetic gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="18">18</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="MK870090.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/MK870090.1">MK870090.1</a></td>
+          <td class="small" data-sort="phormidium sp. lp904c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2579162"><em>Phormidium sp. LP904c</em></a></td>
+          <td class="mono right" data-sort="54162">54.2 kb</td>
+          <td class="small">Phormidium sp. LP904c microcystin biosynthesis gene cluster, complete sequence</td>
+          <td class="small muted">exact duplicate of row 1 (same seqid listed twice)</td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="19">19</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="AF183408.1:992-63626"><a href="https://www.ncbi.nlm.nih.gov/nuccore/AF183408.1">AF183408.1:992-63626</a></td>
+          <td class="small" data-sort="microcystis aeruginosa pcc 7806"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=267872"><em>Microcystis aeruginosa PCC 7806</em></a></td>
+          <td class="mono right" data-sort="62635">62.6 kb</td>
+          <td class="small">Microcystis aeruginosa PCC 7806 DNA polymerase III beta subunit (dnaN) gene, partial cds; microcystin synthetase gene cluster, complete sequence; Uma1 (uma1), Uma2 (uma2), Uma3 (uma3), Uma4 (uma4), and Uma5 (uma5) genes, complete cds; and Uma6 (uma6) gene, partial cds</td>
+          <td class="small muted">subrange 992-63626 of a 63626 bp record</td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="20">20</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="KC699835.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KC699835.1">KC699835.1</a></td>
+          <td class="small" data-sort="kaarinaea lacus pcc 9237"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3158555"><em>Kaarinaea lacus PCC 9237</em></a></td>
+          <td class="mono right" data-sort="65820">65.8 kb</td>
+          <td class="small">Nostoc sp. 152 microcystin synthetase gene cluster, complete sequence; and hypothetical protein gene, partial cds</td>
+          <td class="small muted">title genus Nostoc, NCBI taxonomy genus Kaarinaea</td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="B">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="21">21</td>
+          <td data-sort="1"><span class="badge" style="background:#0e74901a;color:#0e7490" title="Partial BGC / multi-gene">B</span></td>
+          <td class="mono small" data-sort="HM104632.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/HM104632.1">HM104632.1</a></td>
+          <td class="small" data-sort="anabaena sp. bir256"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=462607"><em>Anabaena sp. BIR256</em></a></td>
+          <td class="mono right" data-sort="3285">3.3 kb</td>
+          <td class="small">Anabaena sp. BIR256 microcystin biosynthesis gene cluster, partial sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="B">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="22">22</td>
+          <td data-sort="1"><span class="badge" style="background:#0e74901a;color:#0e7490" title="Partial BGC / multi-gene">B</span></td>
+          <td class="mono small" data-sort="HM104631.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/HM104631.1">HM104631.1</a></td>
+          <td class="small" data-sort="anabaena sp. bir257"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=460381"><em>Anabaena sp. BIR257</em></a></td>
+          <td class="mono right" data-sort="3285">3.3 kb</td>
+          <td class="small">Anabaena sp. BIR257 microcystin biosynthesis gene cluster, partial sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="23">23</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="AY212249.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/AY212249.1">AY212249.1</a></td>
+          <td class="small" data-sort="anabaena sp. 90"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=46234"><em>Anabaena sp. 90</em></a></td>
+          <td class="mono right" data-sort="57817">57.8 kb</td>
+          <td class="small">Anabaena sp. 90 hypothetical protein genes, complete cds; microcystin biosynthesis gene cluster, complete sequence; and putative transposase (atn1) gene, complete cds</td>
+          <td class="small muted">exact duplicate of row 2 (same seqid listed twice)</td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="24">24</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="AJ536156.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/AJ536156.1">AJ536156.1</a></td>
+          <td class="small" data-sort="anabaena sp. 90"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=46234"><em>Anabaena sp. 90</em></a></td>
+          <td class="mono right" data-sort="57817">57.8 kb</td>
+          <td class="small">Anabaena sp. 90 microcystin synthesis gene cluster</td>
+          <td class="small muted">sequence identical to row 2 (AY212249.1)</td>
+        </tr>
+        <tr data-ref="microcystin" data-tier="A">
+          <td data-sort="microcystin">Microcystin</td>
+          <td class="mono right" data-sort="25">25</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="AJ441056.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/AJ441056.1">AJ441056.1</a></td>
+          <td class="small" data-sort="planktothrix agardhii niva-cya 126/8"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=388467"><em>Planktothrix agardhii NIVA-CYA 126/8</em></a></td>
+          <td class="mono right" data-sort="55575">55.6 kb</td>
+          <td class="small">Planktothrix agardhii microcystin synthesis gene cluster</td>
+          <td class="small muted">title organism differs from NCBI organism &#x27;Planktothrix agardhii NIVA-CYA 126/8&#x27;</td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="A">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="1">1</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="GQ385961.1:6500-54500"><a href="https://www.ncbi.nlm.nih.gov/nuccore/GQ385961.1">GQ385961.1:6500-54500</a></td>
+          <td class="small" data-sort="aphanizomenon sp. 10e6"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=459664"><em>Aphanizomenon sp. 10E6</em></a></td>
+          <td class="mono right" data-sort="48001">48.0 kb</td>
+          <td class="small">Aphanizomenon sp. 10E6 RNA-binding S1 domain-containing protein, oxidoreductase alpha subunit, transposase, and hypothetical protein genes, complete cds; cylindrospermopsin biosynthesis gene cluster, complete sequence; and hypothetical proteins, putative nucleotidyl transferase, putative cell envelope-related transcriptional attenuator, pentapeptide repeat-containing protein, and putative integral membrane protein MviN genes, complete cds</td>
+          <td class="small muted">subrange 6500-54500 of a 57112 bp record</td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="A">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="2">2</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="KJ139745.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139745.1">KJ139745.1</a></td>
+          <td class="small" data-sort="raphidiopsis curvata hb1"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=312884"><em>Raphidiopsis curvata HB1</em></a></td>
+          <td class="mono right" data-sort="42821">42.8 kb</td>
+          <td class="small">Raphidiopsis curvata HB1 isolation-source Guanqiao Pond cylindrospermopsin biosynthesis gene cluster, complete sequence</td>
+          <td class="small muted">masked N: 35345-36265; 921 bp hard-masked to N vs NCBI (undocumented in meta.json/source.txt)</td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="A">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="3">3</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="KJ139743.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139743.1">KJ139743.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii chab3438"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480071"><em>Cylindrospermopsis raciborskii CHAB3438</em></a></td>
+          <td class="mono right" data-sort="50355">50.4 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii CHAB3438 isolation-source Xianghu Lake cylindrospermopsin biosynthesis gene cluster, complete sequence; and sterol desaturase-related protein, non-ribosomal peptide synthetase, and major facilitator superfamily transporter genes, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="A">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="4">4</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="KJ139742.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139742.1">KJ139742.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii chab358"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=637997"><em>Cylindrospermopsis raciborskii CHAB358</em></a></td>
+          <td class="mono right" data-sort="39916">39.9 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii CHAB358 isolation-source Wenshan Lake cylindrospermopsin biosynthesis gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="A">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="5">5</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="JN873921.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/JN873921.1">JN873921.1</a></td>
+          <td class="small" data-sort="raphidiopsis curvata chab1150"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=638002"><em>Raphidiopsis curvata CHAB1150</em></a></td>
+          <td class="mono right" data-sort="42888">42.9 kb</td>
+          <td class="small">Raphidiopsis curvata CHAB1150 cylindrospermopsin biosynthesis gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="A">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="6">6</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="EU140798.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU140798.1">EU140798.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii awt205"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=478021"><em>Cylindrospermopsis raciborskii AWT205</em></a></td>
+          <td class="mono right" data-sort="42156">42.2 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii AWT205 cylindrospermopsin biosynthesis gene cluster, complete sequence</td>
+          <td class="small muted">masked N: 14037-14786; 750 bp hard-masked to N vs NCBI (undocumented in meta.json/source.txt)</td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="7">7</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="HQ682086.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/HQ682086.1">HQ682086.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii str. goon"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=385398"><em>Cylindrospermopsis raciborskii str. Goon</em></a></td>
+          <td class="mono right" data-sort="71">71 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii str. Goon cylindrospermopsin (cyrA) gene, partial cds</td>
+          <td class="small muted">only 71 bp</td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="8">8</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="HQ682085.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/HQ682085.1">HQ682085.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii awt205"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=478021"><em>Cylindrospermopsis raciborskii AWT205</em></a></td>
+          <td class="mono right" data-sort="71">71 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii AWT205 cylindrospermopsin (cyrA) gene, partial cds</td>
+          <td class="small muted">sequence identical to row 7 (HQ682086.1); only 71 bp</td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="C">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="9">9</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="KJ139707.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139707.1">KJ139707.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii cydb-1"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480075"><em>Cylindrospermopsis raciborskii cyDB-1</em></a></td>
+          <td class="mono right" data-sort="1176">1.2 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii cyDB-1 isolation-source natural water cylindrospermopsin synthetase CyrA (cyrA) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="10">10</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="KJ139705.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139705.1">KJ139705.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii chab3440"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480072"><em>Cylindrospermopsis raciborskii CHAB3440</em></a></td>
+          <td class="mono right" data-sort="1074">1.1 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii CHAB3440 isolation-source Xianghu Lake cylindrospermopsin synthetase CyrA (cyrA) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="C">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="11">11</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="KJ139704.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139704.1">KJ139704.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii chab357"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480073"><em>Cylindrospermopsis raciborskii CHAB357</em></a></td>
+          <td class="mono right" data-sort="1176">1.2 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii CHAB357 isolation-source Wenshan Lake cylindrospermopsin synthetase CyrA (cyrA) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="12">12</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="KJ139696.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139696.1">KJ139696.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii cydb-1"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480075"><em>Cylindrospermopsis raciborskii cyDB-1</em></a></td>
+          <td class="mono right" data-sort="788">788 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii cyDB-1 isolation-source natural water cylindrospermopsin synthetase CyrI (cyrI) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="13">13</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="KJ139695.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139695.1">KJ139695.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii chab3440"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480072"><em>Cylindrospermopsis raciborskii CHAB3440</em></a></td>
+          <td class="mono right" data-sort="788">788 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii CHAB3440 isolation-source Xianghu Lake cylindrospermopsin synthetase CyrI (cyrI) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="14">14</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="KJ139693.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139693.1">KJ139693.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii cydb-1"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480075"><em>Cylindrospermopsis raciborskii cyDB-1</em></a></td>
+          <td class="mono right" data-sort="661">661 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii cyDB-1 isolation-source natural water cylindrospermopsin synthetase CyrJ (cyrJ) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="15">15</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="KJ139691.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139691.1">KJ139691.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii chab3440"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480072"><em>Cylindrospermopsis raciborskii CHAB3440</em></a></td>
+          <td class="mono right" data-sort="667">667 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii CHAB3440 isolation-source Xianghu Lake cylindrospermopsin synthetase CyrJ (cyrJ) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="D">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="16">16</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="KJ139690.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/KJ139690.1">KJ139690.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii chab357"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1480073"><em>Cylindrospermopsis raciborskii CHAB357</em></a></td>
+          <td class="mono right" data-sort="667">667 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii CHAB357 isolation-source Wenshan Lake cylindrospermopsin synthetase CyrJ (cyrJ) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="cylindrospermopsin" data-tier="A">
+          <td data-sort="cylindrospermopsin">Cylindrospermopsin</td>
+          <td class="mono right" data-sort="17">17</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="FJ418586.4"><a href="https://www.ncbi.nlm.nih.gov/nuccore/FJ418586.4">FJ418586.4</a></td>
+          <td class="small" data-sort="kamptonema sp. pcc 6506"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=272129"><em>Kamptonema sp. PCC 6506</em></a></td>
+          <td class="mono right" data-sort="44646">44.6 kb</td>
+          <td class="small">Oscillatoria sp. PCC 6506 cylindrospermopsin biosynthetic gene cluster, complete sequence</td>
+          <td class="small muted">masked N: 15698-16912,28726-29625; 2115 bp hard-masked to N vs NCBI (undocumented in meta.json/source.txt); title genus Oscillatoria, NCBI taxonomy genus Kamptonema</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="1">1</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU439565.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439565.1">EU439565.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc283a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520820"><em>Dolichospermum circinale AWQC283A</em></a></td>
+          <td class="mono right" data-sort="1535">1.5 kb</td>
+          <td class="small">Anabaena circinalis AWQC283A O-carbamoyltransferase (sxt1) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="2">2</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU439564.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439564.1">EU439564.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc173a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520819"><em>Dolichospermum circinale AWQC173A</em></a></td>
+          <td class="mono right" data-sort="1542">1.5 kb</td>
+          <td class="small">Anabaena circinalis AWQC173A O-carbamoyltransferase (sxt1) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="3">3</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU439563.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439563.1">EU439563.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc150e"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520818"><em>Dolichospermum circinale AWQC150E</em></a></td>
+          <td class="mono right" data-sort="1538">1.5 kb</td>
+          <td class="small">Anabaena circinalis AWQC150E O-carbamoyltransferase (sxt1) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="4">4</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU439562.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439562.1">EU439562.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc323a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520821"><em>Dolichospermum circinale AWQC323A</em></a></td>
+          <td class="mono right" data-sort="1579">1.6 kb</td>
+          <td class="small">Anabaena circinalis AWQC323A O-carbamoyltransferase (sxt1) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="5">5</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU439561.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439561.1">EU439561.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc134c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520817"><em>Dolichospermum circinale AWQC134C</em></a></td>
+          <td class="mono right" data-sort="1541">1.5 kb</td>
+          <td class="small">Anabaena circinalis AWQC134C O-carbamoyltransferase (sxt1) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="6">6</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU439560.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439560.1">EU439560.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc118c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520816"><em>Dolichospermum circinale AWQC118C</em></a></td>
+          <td class="mono right" data-sort="1571">1.6 kb</td>
+          <td class="small">Anabaena circinalis AWQC118C O-carbamoyltransferase (sxt1) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="7">7</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU439559.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439559.1">EU439559.1</a></td>
+          <td class="small" data-sort="aphanizomenon flos-aquae nh-5"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520814"><em>Aphanizomenon flos-aquae NH-5</em></a></td>
+          <td class="mono right" data-sort="1839">1.8 kb</td>
+          <td class="small">Aphanizomenon flos-aquae NH-5 O-carbamoyltransferase (sxt1) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="8">8</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU439558.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439558.1">EU439558.1</a></td>
+          <td class="small" data-sort="microseira wollei str. carmichael/alabama"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=521094"><em>Microseira wollei str. Carmichael/Alabama</em></a></td>
+          <td class="mono right" data-sort="1071">1.1 kb</td>
+          <td class="small">Lyngbya wollei str. Carmichael/Alabama truncated O-carbamoyltransferase (sxt1) gene, complete cds</td>
+          <td class="small muted">title genus Lyngbya, NCBI taxonomy genus Microseira</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="9">9</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU439557.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439557.1">EU439557.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc131c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398007"><em>Dolichospermum circinale AWQC131C</em></a></td>
+          <td class="mono right" data-sort="1839">1.8 kb</td>
+          <td class="small">Anabaena circinalis AWQC131C O-carbamoyltransferase (sxt1) gene, complete cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="10">10</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU439556.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU439556.1">EU439556.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii t3"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398006"><em>Cylindrospermopsis raciborskii T3</em></a></td>
+          <td class="mono right" data-sort="1839">1.8 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii T3 O-carbamoyltransferase (sxt1) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="11">11</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629199.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629199.1">EU629199.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc150e"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520818"><em>Dolichospermum circinale AWQC150E</em></a></td>
+          <td class="mono right" data-sort="706">706 bp</td>
+          <td class="small">Anabaena circinalis AWQC150E dioxygenase (sxtH) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="12">12</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629198.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629198.1">EU629198.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc173a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520819"><em>Dolichospermum circinale AWQC173A</em></a></td>
+          <td class="mono right" data-sort="860">860 bp</td>
+          <td class="small">Anabaena circinalis AWQC173A dioxygenase (sxtH) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="13">13</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629197.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629197.1">EU629197.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc118c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520816"><em>Dolichospermum circinale AWQC118C</em></a></td>
+          <td class="mono right" data-sort="841">841 bp</td>
+          <td class="small">Anabaena circinalis AWQC118C dioxygenase (sxtH) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="14">14</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629195.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629195.1">EU629195.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc134c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520817"><em>Dolichospermum circinale AWQC134C</em></a></td>
+          <td class="mono right" data-sort="750">750 bp</td>
+          <td class="small">Anabaena circinalis AWQC134C dioxygenase (sxtH) gene, partial cds</td>
+          <td class="small muted">2 non-ACGT bases in the NCBI record; title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="15">15</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629190.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629190.1">EU629190.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc131c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398007"><em>Dolichospermum circinale AWQC131C</em></a></td>
+          <td class="mono right" data-sort="719">719 bp</td>
+          <td class="small">Anabaena circinalis AWQC131C amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="16">16</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629188.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629188.1">EU629188.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc173a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520819"><em>Dolichospermum circinale AWQC173A</em></a></td>
+          <td class="mono right" data-sort="705">705 bp</td>
+          <td class="small">Anabaena circinalis AWQC173A amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="17">17</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629187.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629187.1">EU629187.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc150e"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520818"><em>Dolichospermum circinale AWQC150E</em></a></td>
+          <td class="mono right" data-sort="706">706 bp</td>
+          <td class="small">Anabaena circinalis AWQC150E amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="18">18</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629186.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629186.1">EU629186.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc134c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520817"><em>Dolichospermum circinale AWQC134C</em></a></td>
+          <td class="mono right" data-sort="709">709 bp</td>
+          <td class="small">Anabaena circinalis AWQC134C amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="19">19</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629183.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629183.1">EU629183.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc118c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520816"><em>Dolichospermum circinale AWQC118C</em></a></td>
+          <td class="mono right" data-sort="706">706 bp</td>
+          <td class="small">Anabaena circinalis AWQC118C amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="20">20</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629196.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629196.1">EU629196.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc323a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520821"><em>Dolichospermum circinale AWQC323A</em></a></td>
+          <td class="mono right" data-sort="811">811 bp</td>
+          <td class="small">Anabaena circinalis AWQC323A dioxygenase (sxtH) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="21">21</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629189.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629189.1">EU629189.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc283a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520820"><em>Dolichospermum circinale AWQC283A</em></a></td>
+          <td class="mono right" data-sort="709">709 bp</td>
+          <td class="small">Anabaena circinalis AWQC283A amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="22">22</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629185.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629185.1">EU629185.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc150a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=547121"><em>Dolichospermum circinale AWQC150A</em></a></td>
+          <td class="mono right" data-sort="709">709 bp</td>
+          <td class="small">Anabaena circinalis AWQC150A amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">sequence identical to row 21 (EU629189.1); title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="D">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="23">23</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="EU629184.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629184.1">EU629184.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc323a"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520821"><em>Dolichospermum circinale AWQC323A</em></a></td>
+          <td class="mono right" data-sort="703">703 bp</td>
+          <td class="small">Anabaena circinalis AWQC323A amidinotransferase (sxtG) gene, partial cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="24">24</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629202.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629202.1">EU629202.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii t3"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398006"><em>Cylindrospermopsis raciborskii T3</em></a></td>
+          <td class="mono right" data-sort="774">774 bp</td>
+          <td class="small">Cylindrospermopsis raciborskii T3 saxitoxin N1-hydroxylase (sxtX) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="25">25</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629201.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629201.1">EU629201.1</a></td>
+          <td class="small" data-sort="aphanizomenon flos-aquae nh-5"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520814"><em>Aphanizomenon flos-aquae NH-5</em></a></td>
+          <td class="mono right" data-sort="756">756 bp</td>
+          <td class="small">Aphanizomenon flos-aquae NH-5 saxitoxin N1-hydroxylase (sxtX) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="26">26</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629200.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629200.1">EU629200.1</a></td>
+          <td class="small" data-sort="microseira wollei str. carmichael/alabama"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=521094"><em>Microseira wollei str. Carmichael/Alabama</em></a></td>
+          <td class="mono right" data-sort="774">774 bp</td>
+          <td class="small">Lyngbya wollei str. Carmichael/Alabama saxitoxin N1-hydroxylase (sxtX) gene, complete cds</td>
+          <td class="small muted">title genus Lyngbya, NCBI taxonomy genus Microseira</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="27">27</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629194.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629194.1">EU629194.1</a></td>
+          <td class="small" data-sort="dolichospermum circinale awqc131c"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398007"><em>Dolichospermum circinale AWQC131C</em></a></td>
+          <td class="mono right" data-sort="1020">1.0 kb</td>
+          <td class="small">Anabaena circinalis AWQC131C dioxygenase (sxtH) gene, complete cds</td>
+          <td class="small muted">title genus Anabaena, NCBI taxonomy genus Dolichospermum</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="28">28</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629193.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629193.1">EU629193.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii t3"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398006"><em>Cylindrospermopsis raciborskii T3</em></a></td>
+          <td class="mono right" data-sort="1005">1.0 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii T3 dioxygenase (sxtH) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="29">29</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629192.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629192.1">EU629192.1</a></td>
+          <td class="small" data-sort="aphanizomenon flos-aquae nh-5"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520814"><em>Aphanizomenon flos-aquae NH-5</em></a></td>
+          <td class="mono right" data-sort="1020">1.0 kb</td>
+          <td class="small">Aphanizomenon flos-aquae NH-5 dioxygenase (sxtH) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="30">30</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629191.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629191.1">EU629191.1</a></td>
+          <td class="small" data-sort="microseira wollei str. carmichael/alabama"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=521094"><em>Microseira wollei str. Carmichael/Alabama</em></a></td>
+          <td class="mono right" data-sort="1029">1.0 kb</td>
+          <td class="small">Lyngbya wollei str. Carmichael/Alabama dioxygenase (sxtH) gene, complete cds</td>
+          <td class="small muted">title genus Lyngbya, NCBI taxonomy genus Microseira</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="31">31</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629182.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629182.1">EU629182.1</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii t3"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398006"><em>Cylindrospermopsis raciborskii T3</em></a></td>
+          <td class="mono right" data-sort="1134">1.1 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii T3 amidinotransferase (sxtG) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="32">32</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629181.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629181.1">EU629181.1</a></td>
+          <td class="small" data-sort="aphanizomenon flos-aquae nh-5"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=520814"><em>Aphanizomenon flos-aquae NH-5</em></a></td>
+          <td class="mono right" data-sort="1134">1.1 kb</td>
+          <td class="small">Aphanizomenon flos-aquae NH-5 amidinotransferase (sxtG) gene, complete cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="C">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="33">33</td>
+          <td data-sort="2"><span class="badge" style="background:#ca8a041a;color:#ca8a04" title="Single gene, complete CDS">C</span></td>
+          <td class="mono small" data-sort="EU629180.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/EU629180.1">EU629180.1</a></td>
+          <td class="small" data-sort="microseira wollei str. carmichael/alabama"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=521094"><em>Microseira wollei str. Carmichael/Alabama</em></a></td>
+          <td class="mono right" data-sort="1134">1.1 kb</td>
+          <td class="small">Lyngbya wollei str. Carmichael/Alabama amidinotransferase (sxtG) gene, complete cds</td>
+          <td class="small muted">title genus Lyngbya, NCBI taxonomy genus Microseira</td>
+        </tr>
+        <tr data-ref="saxitoxin" data-tier="A">
+          <td data-sort="saxitoxin">Saxitoxin</td>
+          <td class="mono right" data-sort="34">34</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="DQ787200.1:1-30300"><a href="https://www.ncbi.nlm.nih.gov/nuccore/DQ787200.1">DQ787200.1:1-30300</a></td>
+          <td class="small" data-sort="cylindrospermopsis raciborskii t3"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=398006"><em>Cylindrospermopsis raciborskii T3</em></a></td>
+          <td class="mono right" data-sort="30300">30.3 kb</td>
+          <td class="small">Cylindrospermopsis raciborskii T3 toxin biosynthesis gene cluster, complete sequence</td>
+          <td class="small muted">subrange 1-30300 of a 37606 bp record</td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="1">1</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP481208.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP481208.1">OP481208.1</a></td>
+          <td class="small" data-sort="cuspidothrix"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=882045"><em>Cuspidothrix</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Por 2/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="2">2</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP481207.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP481207.1">OP481207.1</a></td>
+          <td class="small" data-sort="cuspidothrix"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=882045"><em>Cuspidothrix</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Vai(1-2) 3/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="3">3</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419972.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419972.1">OP419972.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="622">622 bp</td>
+          <td class="small">Cuspidothrix sp. clone Blu 1/19 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="4">4</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419971.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419971.1">OP419971.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Kop 4/19 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="5">5</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419970.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419970.1">OP419970.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Kop 1/19 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="6">6</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419969.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419969.1">OP419969.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Duv 2/19 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="7">7</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419968.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419968.1">OP419968.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Duv 1/19 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="8">8</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419967.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419967.1">OP419967.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Vai (1-2) 4/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="9">9</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419966.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419966.1">OP419966.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Vai (3) 2/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="10">10</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419965.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419965.1">OP419965.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Vai (3) 1/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="11">11</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419964.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419964.1">OP419964.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Vai (1-2) 1/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="12">12</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419963.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419963.1">OP419963.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Por 1/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="13">13</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419962.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419962.1">OP419962.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Blu 5/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="14">14</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="OP419960.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/OP419960.1">OP419960.1</a></td>
+          <td class="small" data-sort="cuspidothrix sp."><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3019649"><em>Cuspidothrix sp.</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Cuspidothrix sp. clone Blu 2/18 anatoxin (anaC) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="B">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="15">15</td>
+          <td data-sort="1"><span class="badge" style="background:#0e74901a;color:#0e7490" title="Partial BGC / multi-gene">B</span></td>
+          <td class="mono small" data-sort="FJ418584.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/FJ418584.1">FJ418584.1</a></td>
+          <td class="small" data-sort="kamptonema sp. pcc 6506"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=272129"><em>Kamptonema sp. PCC 6506</em></a></td>
+          <td class="mono right" data-sort="3711">3.7 kb</td>
+          <td class="small">Oscillatoria sp. PCC 6506 clone ks1-3711 PLP-dependent decarboxylase gene, partial cds; methyltransferase gene, complete cds; and polyketide synthase gene, partial cds</td>
+          <td class="small muted">title genus Oscillatoria, NCBI taxonomy genus Kamptonema</td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="D">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="16">16</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="JF803649.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/JF803649.1">JF803649.1</a></td>
+          <td class="small" data-sort="kamptonema sp. pcc 6506"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=272129"><em>Kamptonema sp. PCC 6506</em></a></td>
+          <td class="mono right" data-sort="861">861 bp</td>
+          <td class="small">Oscillatoria sp. PCC 6506 strain PCC 9029 AnaC (anaC) gene, partial cds</td>
+          <td class="small muted">title genus Oscillatoria, NCBI taxonomy genus Kamptonema</td>
+        </tr>
+        <tr data-ref="anatoxin_a" data-tier="A">
+          <td data-sort="anatoxin_a">Anatoxin-a</td>
+          <td class="mono right" data-sort="17">17</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="FJ477836.2:5100-33100"><a href="https://www.ncbi.nlm.nih.gov/nuccore/FJ477836.2">FJ477836.2:5100-33100</a></td>
+          <td class="small" data-sort="kamptonema sp. pcc 6506"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=272129"><em>Kamptonema sp. PCC 6506</em></a></td>
+          <td class="mono right" data-sort="28001">28.0 kb</td>
+          <td class="small">Oscillatoria sp. PCC 6506 anatoxin-a and homoanatoxin-a biosynthetic gene cluster, complete sequence</td>
+          <td class="small muted">subrange 5100-33100 of a 34682 bp record; title genus Oscillatoria, NCBI taxonomy genus Kamptonema</td>
+        </tr>
+        <tr data-ref="nodularin" data-tier="A">
+          <td data-sort="nodularin">Nodularin</td>
+          <td class="mono right" data-sort="1">1</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="AY210783.2"><a href="https://www.ncbi.nlm.nih.gov/nuccore/AY210783.2">AY210783.2</a></td>
+          <td class="small" data-sort="nodularia spumigena"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=70799"><em>Nodularia spumigena</em></a></td>
+          <td class="mono right" data-sort="54353">54.4 kb</td>
+          <td class="small">Nodularia spumigena strain NSOR10 putative heat transcriptional repressor protein, putative beta-carotene ketolase, putative high light inducible protein, putative transposase, NdaB (ndaB), NdaA (ndaA), NdaC (ndaC), NdaD (ndaD), O-methyltransferase NdaE (ndaE), NdaF (ndaF), NdaG (ndaG), NdaH (ndaH), ABC transporter NdaI (ndaI), and hypothetical proteins, complete cds</td>
+          <td class="small muted"><br>override: source.txt lists AY210783.2 as the &#x27;complete nda cluster (canonical)&#x27;; the NCBI title enumerates ndaA-ndaI CDSs without the word &#x27;cluster&#x27;</td>
+        </tr>
+        <tr data-ref="nodularin" data-tier="A">
+          <td data-sort="nodularin">Nodularin</td>
+          <td class="mono right" data-sort="2">2</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="MF668122.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/MF668122.1">MF668122.1</a></td>
+          <td class="small" data-sort="nostoc sp. cena543"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1869241"><em>Nostoc sp. CENA543</em></a></td>
+          <td class="mono right" data-sort="48240">48.2 kb</td>
+          <td class="small">Nostoc sp. CENA543 nodularin gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="nodularin" data-tier="B">
+          <td data-sort="nodularin">Nodularin</td>
+          <td class="mono right" data-sort="3">3</td>
+          <td data-sort="1"><span class="badge" style="background:#0e74901a;color:#0e7490" title="Partial BGC / multi-gene">B</span></td>
+          <td class="mono small" data-sort="JF342711.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/JF342711.1">JF342711.1</a></td>
+          <td class="small" data-sort="nostoc sp. 73.1"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=707671"><em>Nostoc sp. 73.1</em></a></td>
+          <td class="mono right" data-sort="14288">14.3 kb</td>
+          <td class="small">Nostoc sp. 73.1 hypothetical protein, NdaA (ndaA), and NdaB (ndaB) genes, complete cds; and inosamine-phosphate amidinotransferase gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="nodularin" data-tier="D">
+          <td data-sort="nodularin">Nodularin</td>
+          <td class="mono right" data-sort="4">4</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="JQ010856.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/JQ010856.1">JQ010856.1</a></td>
+          <td class="small" data-sort="nostoc sp. 1.3"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=707651"><em>Nostoc sp. 1.3</em></a></td>
+          <td class="mono right" data-sort="1555">1.6 kb</td>
+          <td class="small">Nostoc sp. 1.3 NdaA-like (ndaA) gene, partial sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="nodularin" data-tier="D">
+          <td data-sort="nodularin">Nodularin</td>
+          <td class="mono right" data-sort="5">5</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="JQ010857.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/JQ010857.1">JQ010857.1</a></td>
+          <td class="small" data-sort="nostoc sp. 62.1"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=707669"><em>Nostoc sp. 62.1</em></a></td>
+          <td class="mono right" data-sort="1549">1.5 kb</td>
+          <td class="small">Nostoc sp. 62.1 NdaA-like (ndaA) gene, partial sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="nodularin" data-tier="D">
+          <td data-sort="nodularin">Nodularin</td>
+          <td class="mono right" data-sort="6">6</td>
+          <td data-sort="3"><span class="badge" style="background:#be123c1a;color:#be123c" title="Single-gene fragment">D</span></td>
+          <td class="mono small" data-sort="JQ010858.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/JQ010858.1">JQ010858.1</a></td>
+          <td class="small" data-sort="nostoc sp. 65.1"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=707670"><em>Nostoc sp. 65.1</em></a></td>
+          <td class="mono right" data-sort="997">997 bp</td>
+          <td class="small">Nostoc sp. 65.1 NdaA (ndaA) gene, partial cds</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="guanitoxin" data-tier="A">
+          <td data-sort="guanitoxin">Guanitoxin</td>
+          <td class="mono right" data-sort="1">1</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="CP080598.1:3534366-3547937"><a href="https://www.ncbi.nlm.nih.gov/nuccore/CP080598.1">CP080598.1:3534366-3547937</a></td>
+          <td class="small" data-sort="sphaerospermopsis torques-reginae itep-024"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=984208"><em>Sphaerospermopsis torques-reginae ITEP-024</em></a></td>
+          <td class="mono right" data-sort="13572">13.6 kb</td>
+          <td class="small">Sphaerospermopsis torques-reginae ITEP-024 chromosome</td>
+          <td class="small muted">subrange 3534366-3547937 of a 5254542 bp record<br>override: source.txt — gnt BGC region (gntJ..gntT, incl. 500 bp flanks) extracted from the ITEP-024 chromosome with EFetch seq_start/seq_stop</td>
+        </tr>
+        <tr data-ref="aetokthonotoxin" data-tier="A">
+          <td data-sort="aetokthonotoxin">Aetokthonotoxin</td>
+          <td class="mono right" data-sort="1">1</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="ON840103.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/ON840103.1">ON840103.1</a></td>
+          <td class="small" data-sort="aetokthonos hydrillicola thurmond2011"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2712845"><em>Aetokthonos hydrillicola Thurmond2011</em></a></td>
+          <td class="mono right" data-sort="36940">36.9 kb</td>
+          <td class="small">Aetokthonos hydrillicola Thurmond2011 NRPS/PKS gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr>
+        <tr data-ref="aetokthonotoxin" data-tier="A">
+          <td data-sort="aetokthonotoxin">Aetokthonotoxin</td>
+          <td class="mono right" data-sort="2">2</td>
+          <td data-sort="0"><span class="badge" style="background:#0478571a;color:#047857" title="Complete BGC">A</span></td>
+          <td class="mono small" data-sort="MT225528.1"><a href="https://www.ncbi.nlm.nih.gov/nuccore/MT225528.1">MT225528.1</a></td>
+          <td class="small" data-sort="aetokthonos hydrillicola thurmond2011"><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2712845"><em>Aetokthonos hydrillicola Thurmond2011</em></a></td>
+          <td class="mono right" data-sort="9229">9.2 kb</td>
+          <td class="small">Aetokthonos hydrillicola Thurmond2011 AETX gene cluster, complete sequence</td>
+          <td class="small muted"></td>
+        </tr></tbody>
+</table></div>
+
+<footer>
+  Built by <a href="https://github.com/rec3141/HABGDB">HABGDB</a> &middot;
+  sequence metadata from NCBI Entrez esummary / feature tables &middot;
+  rebuild the references with <code>build_hab_refs.py</code>.
+</footer>
+
+<script>
+  function applyFilters() {
+    const q   = document.getElementById('filter').value.toLowerCase();
+    const ref = document.getElementById('refFilter').value;
+    const tr  = document.getElementById('tierFilter').value;
+    for (const r of document.querySelectorAll('#rows tr')) {
+      let show = true;
+      if (q   && !r.textContent.toLowerCase().includes(q)) show = false;
+      if (ref && r.dataset.ref  !== ref) show = false;
+      if (tr  && r.dataset.tier !== tr)  show = false;
+      r.style.display = show ? '' : 'none';
+    }
+  }
+  const sortState = {};
+  function sortBy(tid, col) {
+    const st = sortState[tid] || (sortState[tid] = { col: null, dir: 1 });
+    if (st.col === col) st.dir = -st.dir; else { st.col = col; st.dir = 1; }
+    const table = document.getElementById(tid);
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort((a, b) => {
+      const av = a.children[col].dataset.sort ?? a.children[col].textContent;
+      const bv = b.children[col].dataset.sort ?? b.children[col].textContent;
+      if (av === '' && bv !== '') return  1;
+      if (bv === '' && av !== '') return -1;
+      const an = parseFloat(av), bn = parseFloat(bv);
+      if (!isNaN(an) && !isNaN(bn)) return (an - bn) * st.dir;
+      return av.localeCompare(bv) * st.dir;
+    });
+    rows.forEach(r => tbody.appendChild(r));
+    table.querySelectorAll('th').forEach((th, i) => {
+      th.classList.toggle('sorted-asc',  i === col && st.dir > 0);
+      th.classList.toggle('sorted-desc', i === col && st.dir < 0);
+    });
+  }
+</script>
+</body></html>
