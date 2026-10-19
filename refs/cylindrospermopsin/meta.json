@@ -1,0 +1,9 @@
+{
+  "id": "cylindrospermopsin",
+  "species": "Cylindrospermopsis raciborskii / Raphidiopsis curvata / Aphanizomenon spp. / Oscillatoria spp.",
+  "common_name": "Cylindrospermopsin (cyr cluster)",
+  "category": "HAB",
+  "source": "NCBI nuccore \u2014 'cylindrospermopsin biosynthesis[Title]' + C. raciborskii[Organism] ESearch + FJ418586.4 (Oscillatoria PCC 6506)",
+  "added": "2026-06-11",
+  "notes": "33-sequence panel. C. raciborskii range-expanding into Great Lakes basin; Aphanizomenon spp. established in Lake Winnipeg. Includes cyr cluster from Oscillatoria sp. PCC 6506 (FJ418586.4) as additional diverse producer."
+}

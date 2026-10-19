@@ -1,0 +1,2 @@
+date:    2026-06-11
+notes:   17 sequences including FJ477836.2 (complete ana cluster, Oscillatoria PCC 6506). ESearch Cuspidothrix + anatoxin.

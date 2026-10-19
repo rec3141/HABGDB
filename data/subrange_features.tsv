@@ -1,0 +1,206 @@
+ref	seqid	accession	status	feature	lo	hi	gene	product	locus_tag
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	1	1655		transposase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	1679	1933		hypothetical protein	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	2075	2566		transposase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	2662	3570		hypothetical protein	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	3746	4390		transposase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	4431	4898		transposase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	5164	6072		hypothetical protein	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	6126	7526	anaI		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	6126	7526		AnaI	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	8692	8985		non-ribosomal peptide synthase fragment	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	9538	10257	anaJ		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	9538	10257		cyclase-like protein	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	10647	11402	anaA		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	10647	11402		thioesterase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	12313	13458	anaB		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	12313	13458		AnaB	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	13471	15087	anaC		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	13471	15087		proline adenylation protein	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	15110	15373	anaD		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	15110	15373		acyl carrier protein	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	15527	21967	anaE		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	15527	21967		polyketide synthase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	21969	27566	anaF		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	21969	27566		polyketide synthase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	gene	27842	32743	anaG		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	in	CDS	27842	32743		polyketide synthase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	gene	33188	33658	anaH		
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	33188	33658		transposase	
+anatoxin_a	FJ477836.2:5100-33100	FJ477836.2	OUT	CDS	33747	34682		transposase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	OUT	CDS	190	1092		RNA-binding S1 domain-containing protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	OUT	CDS	1374	3617		oxidoreductase alpha subunit	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	OUT	CDS	4170	5810		transposase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	CLIP	CDS	6213	6536		hypothetical protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	7145	7930	cyrJ		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	7145	7930		putative sulfotransferase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	8933	10363	cyrH		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	8933	10363		aminohydrolase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	10809	12248	cyrK		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	10809	12248		multidrug exporter MatE	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	13364	14194	cyrI		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	13364	14194		proline dioxygenase-like protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	14248	15684	cyrG		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	14248	15684		putative uracil ring formation	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	15903	19976	cyrF		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	15903	19976		polyketide synthase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	20032	25587	cyrD		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	20032	25587		polyketide synthase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	25587	30590	cyrC		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	25587	30590		polyketide synthase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	31142	32317	cyrA		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	31142	32317		amidinotransferase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	32332	41085	cyrB		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	32332	41085		mixed NRPS/PKS	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	gene	41090	46756	cyrE		
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	41090	46756		polyketide synthase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	47180	47623		hypothetical protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	47667	48065		hypothetical protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	49222	49599		hypothetical protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	49808	50167		hypothetical protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	50265	50612		hypothetical protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	50678	51079		hypothetical protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	in	CDS	51719	52795		putative nucleotidyl transferase	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	CLIP	CDS	53153	54658		putative cell envelope-like transcriptional attenuator	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	OUT	CDS	54745	55251		pentapeptide repeat-containing protein	
+cylindrospermopsin	GQ385961.1:6500-54500	GQ385961.1	OUT	CDS	55715	56914		putative integral membrane protein MviN	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3528785	3529930	tal		K2F26_16425
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3528785	3529930		transaldolase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3530109	3531638	zwf		K2F26_16430
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3530109	3531638		glucose-6-phosphate dehydrogenase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3531885	3533255	opcA		K2F26_16435
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3531885	3533255		glucose-6-phosphate dehydrogenase assembly protein OpcA	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3533545	3533883			K2F26_16440
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3533545	3533883		DUF433 domain-containing protein	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3533877	3534227			K2F26_16445
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3533877	3534227		DUF5615 family PIN-like protein	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3534866	3535615	gntJ		K2F26_16450
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3534866	3535615		guanitoxin forming phosphate O-methyltransferase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3535878	3536681	gntA		K2F26_16455
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3535878	3536681		heme dependent pre-guanitoxin N-hydroxylase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3536705	3537661	gntB		K2F26_16460
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3536705	3537661		L-arginine gamma (S) hydroxylase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3537813	3538925	gntC		K2F26_16465
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3537813	3538925		PLP-dependent (S)-gamma-hydroxy-L-arginine cyclodehydratase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3538922	3539965	gntD		K2F26_16470
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3538922	3539965		L-enduracididine beta-hydroxylase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3539980	3541290	gntE		K2F26_16475
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3539980	3541290		PLP-dependent transaminase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3541494	3542318	gntF		K2F26_16480
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3541494	3542318		pre-guanitoxin forming N-methyltransferase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3542324	3543358	gntG		K2F26_16485
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3542324	3543358		PLP-dependent aldolase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3543550	3544791	gntH		K2F26_16490
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3543550	3544791		MBL fold metallo-hydrolase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3544854	3545771	gntI		K2F26_16495
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3544854	3545771		pre-guanitoxin N-oxide kinase	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	gene	3546079	3547437	gntT		K2F26_16500
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	in	CDS	3546079	3547437		MATE family efflux transporter	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3548353	3548616			K2F26_16505
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3548353	3548616		hypothetical protein	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3549175	3549501			K2F26_16510
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3549175	3549501		hypothetical protein	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3549498	3549911			K2F26_16515
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3549498	3549911		hypothetical protein	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3550122	3550889			K2F26_16520
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3550122	3550889		Uma2 family endonuclease	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3551024	3551542	ilvN		K2F26_16525
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3551024	3551542		acetolactate synthase small subunit	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3551824	3552162			K2F26_16530
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3551824	3552162		phospholipid-binding protein	
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	gene	3552218	3553135			K2F26_16535
+guanitoxin	CP080598.1:3534366-3547937	CP080598.1	OUT	CDS	3552218	3553135		alpha/beta fold hydrolase	
+microcystin	AF183408.1:992-63626	AF183408.1	OUT	gene	1	422	dnaN		
+microcystin	AF183408.1:992-63626	AF183408.1	OUT	CDS	1	422		DNA polymerase III beta subunit	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	992	1828	mcyJ		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	992	1828		McyJ	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	2004	3017	mcyI		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	2004	3017		McyI	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	3056	4672	mcyH		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	3056	4672		McyH	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	4896	12791	mcyG		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	4896	12791		McyG	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	12923	13678	mcyF		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	12923	13678		McyF	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	13710	24173	mcyE		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	13710	24173		McyE	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	24340	36060	mcyD		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	24340	36060		McyD	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	36793	45180	mcyA		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	36793	45180		McyA	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	45196	51576	mcyB		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	45196	51576		McyB	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	51573	55448	mcyC		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	51573	55448		McyC	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	55541	57592	uma1		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	55541	57592		Uma1	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	57836	58399	uma2		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	57836	58399		Uma2	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	58446	59972	uma3		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	58446	59972		Uma3	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	60057	61271	uma4		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	60057	61271		Uma4	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	62180	62614	uma5		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	62180	62614		Uma5	
+microcystin	AF183408.1:992-63626	AF183408.1	in	gene	62656	63626	uma6		
+microcystin	AF183408.1:992-63626	AF183408.1	in	CDS	62656	63626		Uma6	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	1	1320		alr5035-like protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	1625	2383	sxtD		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	1625	2383		sterole desaturase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	2621	3016		InsB-like protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	2955	3314		InsA-like protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	3647	4000	sxtC		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	3647	4000		SxtC	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	4030	4986	sxtB		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	4030	4986		cytidine deaminase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	5047	8784	sxtA		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	5047	8784		polyketide synthase-related protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	9140	9526	sxtE		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	9140	9526		SxtE	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	9686	11101	sxtF		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	9686	11101		sodium-driven multidrug and toxic compound extrusion protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	11112	12245	sxtG		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	11112	12245		amidinotransferase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	12314	13318	sxtH		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	12314	13318		phenylpropionate dioxygenase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	13476	15314	sxtI		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	13476	15314		NodU/CmcH-related carbamoyltransferase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	15318	15761	sxtJ		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	15318	15761		SxtJ	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	15761	15925	sxtK		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	15761	15925		SxtK	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	15937	17235	sxtL		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	15937	17235		GDSL-lipase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	17323	18771	sxtM		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	17323	18771		sodium-driven multidrug and toxic compound extrusion protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	19119	19949	sxtN		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	19119	19949		sulfotransferase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	20238	21011	sxtX		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	20238	21011		cephalosporin hydroxylase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	21175	21501	sxtW		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	21175	21501		ferredoxin	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	21542	23194	sxtV		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	21542	23194		FAD-dependent succinate dehydrogenase/fumarate reductase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	23199	23948	sxtU		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	23199	23948		short-chain alcohol dehydrogenase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	24091	25095	sxtT		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	24091	25095		phenylpropionate dioxygenase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	25173	25898	sxtS		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	25173	25898		phytanoyl-CoA dioxygenase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	25974	26549		cyanophage S-PM2 protein CAF34141-like protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	26605	27381	sxtR		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	26605	27381		acyl-CoA N-acyltransferase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	27392	28168	sxtQ		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	27392	28168		SxtQ	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	28281	29507	sxtP		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	28281	29507		putative saxitoxin-binding protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	gene	29667	30269	sxtO		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	in	CDS	29667	30269		adenylylsulfate kinase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	CDS	30612	31961		transposase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	gene	32612	33277	sxtY		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	CDS	32612	33277		phosphate uptake regulator	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	gene	33325	34677	sxtZ		
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	CDS	33325	34677		histidine kinase	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	CDS	35029	35847		transcriptional regulator OmpR family	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	CDS	35972	36745		HisA-related protein	
+saxitoxin	DQ787200.1:1-30300	DQ787200.1	OUT	CDS	37060	37455		unknown	

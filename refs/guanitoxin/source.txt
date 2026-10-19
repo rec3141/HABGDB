@@ -1,0 +1,9 @@
+BGC: guanitoxin (gnt cluster) — gntJ through gntT (MATE efflux transporter)
+organism: Sphaerospermopsis torques-reginae ITEP-024
+accession: CP080598.1 (region 3,534,366–3,547,937)
+cluster size: ~13.6 kb (includes 500 bp flanks)
+genes included: gntJ gntA gntB gntC gntD gntE gntF gntG gntH gntI gntT
+date: 2026-06-11
+notes: Extracted from whole chromosome using NCBI EFetch seq_start/seq_stop.
+       gntT (MATE efflux transporter) included — part of the biosynthetic gene cluster.
+       Previous FASTA was the whole 5.3 Mb chromosome; trimmed to BGC only.

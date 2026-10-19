@@ -1,0 +1,9 @@
+{
+  "id": "microcystin",
+  "species": "Microcystis aeruginosa / Planktothrix spp. / Anabaena spp.",
+  "common_name": "Microcystin (mcy cluster)",
+  "category": "HAB",
+  "source": "NCBI nuccore \u2014 'microcystin cluster[Title]' + curated complete sequences",
+  "added": "2026-06-11",
+  "notes": "25-sequence multi-producer panel including M. aeruginosa PCC 7806 mcy cluster (OQ291096). High-priority ref for Great Lakes and Lake Winnipeg. Non-cyanobacterial mcy orthologs not yet included; add from MAG assembly when available."
+}

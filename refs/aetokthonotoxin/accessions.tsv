@@ -1,0 +1,3 @@
+order	seqid	accession	seq_start	seq_stop	length	record_length	organism	taxid	tier	tier_note	mask_n	seq_sha1	title	note
+1	ON840103.1	ON840103.1			36940	36940	Aetokthonos hydrillicola Thurmond2011	2712845	A			d6bc84cb8a1d25bbb1228b624f9905d6748b00f9	Aetokthonos hydrillicola Thurmond2011 NRPS/PKS gene cluster, complete sequence	
+2	MT225528.1	MT225528.1			9229	9229	Aetokthonos hydrillicola Thurmond2011	2712845	A			b37d668df073d7595f1d6ca4fecc020937906734	Aetokthonos hydrillicola Thurmond2011 AETX gene cluster, complete sequence	

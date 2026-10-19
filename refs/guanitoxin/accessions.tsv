@@ -1,0 +1,2 @@
+order	seqid	accession	seq_start	seq_stop	length	record_length	organism	taxid	tier	tier_note	mask_n	seq_sha1	title	note
+1	CP080598.1:3534366-3547937	CP080598.1	3534366	3547937	13572	5254542	Sphaerospermopsis torques-reginae ITEP-024	984208	A	override: source.txt — gnt BGC region (gntJ..gntT, incl. 500 bp flanks) extracted from the ITEP-024 chromosome with EFetch seq_start/seq_stop		e0f141302ac28500a93f7fc371ee39f508b0f439	Sphaerospermopsis torques-reginae ITEP-024 chromosome	subrange 3534366-3547937 of a 5254542 bp record

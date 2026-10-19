@@ -1,0 +1,17 @@
+ref	order	seqid	lo	hi	gene	product	panel_status
+anatoxin_a	17	FJ477836.2:5100-33100	1	1655		transposase	outside subrange
+anatoxin_a	17	FJ477836.2:5100-33100	2075	2566		transposase	outside subrange
+anatoxin_a	17	FJ477836.2:5100-33100	3746	4390		transposase	outside subrange
+anatoxin_a	17	FJ477836.2:5100-33100	4431	4898		transposase	outside subrange
+anatoxin_a	17	FJ477836.2:5100-33100	33188	33658		transposase	outside subrange
+anatoxin_a	17	FJ477836.2:5100-33100	33747	34682		transposase	outside subrange
+cylindrospermopsin	1	GQ385961.1:6500-54500	4170	5810		transposase	outside subrange
+cylindrospermopsin	2	KJ139745.1	35345	36265		transposase	hard-masked to N
+cylindrospermopsin	6	EU140798.1	14037	14786		transposase	hard-masked to N
+cylindrospermopsin	17	FJ418586.4	15698	16912		putative transposase	hard-masked to N
+cylindrospermopsin	17	FJ418586.4	28726	29625		putative transposase	hard-masked to N
+microcystin	2	AY212249.1	56675	57817		putative transposase	in panel (unmasked)
+microcystin	23	AY212249.1	56675	57817		putative transposase	in panel (unmasked)
+microcystin	24	AJ536156.1	56675	57817		putative transposase	in panel (unmasked)
+nodularin	1	AY210783.2	3689	4204		putative transposase	in panel (unmasked)
+saxitoxin	34	DQ787200.1:1-30300	30612	31961		transposase	outside subrange

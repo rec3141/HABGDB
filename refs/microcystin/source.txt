@@ -1,0 +1,2 @@
+date:    2026-06-11
+notes:   25 mcy cluster sequences from Microcystis aeruginosa, Planktothrix, Anabaena, Phormidium. ESearch 'microcystin cluster[Title]'.

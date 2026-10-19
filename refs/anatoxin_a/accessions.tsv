@@ -1,0 +1,18 @@
+order	seqid	accession	seq_start	seq_stop	length	record_length	organism	taxid	tier	tier_note	mask_n	seq_sha1	title	note
+1	OP481208.1	OP481208.1			861	861	Cuspidothrix	882045	D			7a67e83709b17e6e507e6fc5e6f797d1ae409fa0	Cuspidothrix sp. clone Por 2/18 anatoxin (anaC) gene, partial cds	
+2	OP481207.1	OP481207.1			861	861	Cuspidothrix	882045	D			1db1de4e27c90a23be5ef70c7e569d830feaa69b	Cuspidothrix sp. clone Vai(1-2) 3/18 anatoxin (anaC) gene, partial cds	
+3	OP419972.1	OP419972.1			622	622	Cuspidothrix sp.	3019649	D			0c0937144e4b62826b4bd74b47a47711b0fed5e6	Cuspidothrix sp. clone Blu 1/19 anatoxin (anaC) gene, partial cds	
+4	OP419971.1	OP419971.1			861	861	Cuspidothrix sp.	3019649	D			40d5db28b3a913c0f0e1304f2e0435bce8db0584	Cuspidothrix sp. clone Kop 4/19 anatoxin (anaC) gene, partial cds	
+5	OP419970.1	OP419970.1			861	861	Cuspidothrix sp.	3019649	D			07a7629560b903c5650dd317116c534f7d5e1f4c	Cuspidothrix sp. clone Kop 1/19 anatoxin (anaC) gene, partial cds	
+6	OP419969.1	OP419969.1			861	861	Cuspidothrix sp.	3019649	D			d59960c1062942f7984e67807378becf83f09176	Cuspidothrix sp. clone Duv 2/19 anatoxin (anaC) gene, partial cds	
+7	OP419968.1	OP419968.1			861	861	Cuspidothrix sp.	3019649	D			b2fa82dde6d161555a1853675ebe7afbf430ee71	Cuspidothrix sp. clone Duv 1/19 anatoxin (anaC) gene, partial cds	
+8	OP419967.1	OP419967.1			861	861	Cuspidothrix sp.	3019649	D			14c72b90a3fec2cd8d3dcd77f34aa1ee6f3d8101	Cuspidothrix sp. clone Vai (1-2) 4/18 anatoxin (anaC) gene, partial cds	
+9	OP419966.1	OP419966.1			861	861	Cuspidothrix sp.	3019649	D			37b0e74d59b6a49d4f3fa427a04b700c54ef53f2	Cuspidothrix sp. clone Vai (3) 2/18 anatoxin (anaC) gene, partial cds	
+10	OP419965.1	OP419965.1			861	861	Cuspidothrix sp.	3019649	D			1cd04c2b02b420b631116a2698e6bae1e37fb996	Cuspidothrix sp. clone Vai (3) 1/18 anatoxin (anaC) gene, partial cds	
+11	OP419964.1	OP419964.1			861	861	Cuspidothrix sp.	3019649	D			3f2e4d89b8052959747db36538fc39346953d213	Cuspidothrix sp. clone Vai (1-2) 1/18 anatoxin (anaC) gene, partial cds	
+12	OP419963.1	OP419963.1			861	861	Cuspidothrix sp.	3019649	D			190c66ccde41796ae2575f0400a687e711e0976e	Cuspidothrix sp. clone Por 1/18 anatoxin (anaC) gene, partial cds	
+13	OP419962.1	OP419962.1			861	861	Cuspidothrix sp.	3019649	D			a3c318542fd8b409595150073e34b6866636c16a	Cuspidothrix sp. clone Blu 5/18 anatoxin (anaC) gene, partial cds	
+14	OP419960.1	OP419960.1			861	861	Cuspidothrix sp.	3019649	D			47c93ef270ae9d58e448f0568ff1d01debd36b85	Cuspidothrix sp. clone Blu 2/18 anatoxin (anaC) gene, partial cds	
+15	FJ418584.1	FJ418584.1			3711	3711	Kamptonema sp. PCC 6506	272129	B			bd5d670d12680277c25f451b6870373bacf6aef8	Oscillatoria sp. PCC 6506 clone ks1-3711 PLP-dependent decarboxylase gene, partial cds; methyltransferase gene, complete cds; and polyketide synthase gene, partial cds	title genus Oscillatoria, NCBI taxonomy genus Kamptonema
+16	JF803649.1	JF803649.1			861	861	Kamptonema sp. PCC 6506	272129	D			5f2a909ec7affa60cbb6d785db784a0930d8588c	Oscillatoria sp. PCC 6506 strain PCC 9029 AnaC (anaC) gene, partial cds	title genus Oscillatoria, NCBI taxonomy genus Kamptonema
+17	FJ477836.2:5100-33100	FJ477836.2	5100	33100	28001	34682	Kamptonema sp. PCC 6506	272129	A			0766f090096d355953396d99771179ecc6648d4c	Oscillatoria sp. PCC 6506 anatoxin-a and homoanatoxin-a biosynthetic gene cluster, complete sequence	subrange 5100-33100 of a 34682 bp record; title genus Oscillatoria, NCBI taxonomy genus Kamptonema

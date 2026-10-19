@@ -1,0 +1,16 @@
+BGC: nodularin (nda cluster) — 6 sequences, ~121 kb
+organisms:
+  AY210783.2  Nodularia spumigena NSOR10     — complete nda cluster (canonical)
+  MF668122.1  Nostoc sp. CENA543             — complete nda cluster (HGT in freshwater Nostoc)
+  JF342711.1  Nostoc sp. 73.1               — partial ndaA+ndaB
+  JQ010856.1  Nostoc sp. 1.3                — partial ndaA
+  JQ010857.1  Nostoc sp. 62.1               — partial ndaA
+  JQ010858.1  Nostoc sp. 65.1               — partial ndaA
+excluded:
+  AF227755.1  Sinorhizobium sp. C5 16S rRNA — wrong sequence (not nda)
+  KJ462515    Pseudomonas putida J5          — UNVERIFIED record; would cause false positives
+  DQ842505    Nodularia spumigena AV1 ndaA   — 112 bp only (too short for reliable mapping)
+date: 2026-06-11
+notes: Nostoc strains with nda clusters represent horizontal gene transfer events
+       documented in freshwater systems; relevant for Great Lakes / Lake Winnipeg surveillance.
+       Non-Nodularia producers are genuinely confirmed in the literature (Fewer et al. 2009).

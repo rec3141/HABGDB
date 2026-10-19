@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+# Built references — the accession lists in refs/ are the source of truth.
+build/
+*.fna
+*.idx
+*.mmi

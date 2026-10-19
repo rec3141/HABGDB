@@ -1,0 +1,2 @@
+date:    2026-06-11
+notes:   33 cyr cluster sequences from Cylindrospermopsis raciborskii, Raphidiopsis curvata, Aphanizomenon spp., Oscillatoria sp. PCC 6506. ESearch 'cylindrospermopsin biosynthesis[Title]'.

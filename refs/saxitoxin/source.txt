@@ -1,0 +1,2 @@
+date:    2026-06-11
+notes:   35 sxt sequences including DQ787200 (complete cluster, C. raciborskii T3). ESearch 'saxitoxin biosynthesis gene cluster'. Gemmata chromosome excluded.

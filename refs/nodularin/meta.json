@@ -1,0 +1,9 @@
+{
+  "id": "nodularin",
+  "species": "Nodularia spumigena",
+  "common_name": "Nodularin (nda cluster)",
+  "category": "HAB",
+  "source": "NCBI nuccore \u2014 AY210783 (NSOR10) + AF227755 (CCY9414)",
+  "added": "2026-06-11",
+  "notes": "Baltic/brackish specialist; not yet documented in Great Lakes or Lake Winnipeg. Present for completeness and ballast water / migrating bird monitoring. 2 complete nda cluster sequences."
+}

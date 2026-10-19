@@ -1,0 +1,9 @@
+{
+  "id": "saxitoxin",
+  "species": "Cylindrospermopsis raciborskii T3 / Anabaena circinalis / Aphanizomenon flos-aquae",
+  "common_name": "Saxitoxin (sxt cluster)",
+  "category": "HAB",
+  "source": "NCBI nuccore \u2014 'saxitoxin biosynthesis gene cluster' ESearch; Gemmata massiliana chromosome excluded (non-cyano ortholog, too large for this panel)",
+  "added": "2026-06-11",
+  "notes": "35 sequences: DQ787200 (complete sxt cluster, C. raciborskii T3) is the primary reference. Also includes soil metagenome contig CBFDRI010000008 (non-cyanobacterial sxt signal). Aphanizomenon gracile documented in Lake Ontario. Gemmata massiliana (planctomycete with sxt orthologs) deferred \u2014 add as separate ref when investigating non-cyano PSP producers."
+}

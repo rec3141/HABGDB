@@ -1,0 +1,9 @@
+{
+  "id": "aetokthonotoxin",
+  "species": "Aetokthonos hydrillicola Thurmond2011",
+  "common_name": "Aetokthonotoxin (aet/NRPS-PKS cluster)",
+  "category": "HAB",
+  "source": "NCBI nuccore \u2014 ON840103.1 (NRPS/PKS cluster) + MT225528.1 (AETX gene cluster, complete)",
+  "added": "2026-06-11",
+  "notes": "Epiphyte on Hydrilla verticillata. Linked to Vacuolar Myelinopathy (VM) in bald eagles and waterfowl. Hydrilla established in parts of Great Lakes basin. 2 sequences: MT225528 is the specific AETX cluster; ON840103 is the broader NRPS/PKS region. No complete genome deposited in NCBI as of 2026-06-11 \u2014 rebuild when available."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "guanitoxin",
+  "species": "Sphaerospermopsis torques-reginae ITEP-024 + non-cyanobacterial orthologs TBD",
+  "common_name": "Guanitoxin (gnt cluster, formerly anatoxin-a(s))",
+  "category": "HAB",
+  "source": "NCBI nuccore \u2014 Sphaerospermopsis torques-reginae[Organism] (chromosome CP080598.1 + accessory clusters)",
+  "added": "2026-06-11",
+  "notes": "Non-cyanobacterial gnt-like reads already detected in Lake Winnipeg/Great Lakes samples but not yet assembled. The chromosome (CP080598.1, ~5 Mb) contains the gnt cluster embedded. When MAG contigs are assembled, add them here and rebuild. 16S sequences from ITEP-026 removed to avoid cross-species false positives."
+}

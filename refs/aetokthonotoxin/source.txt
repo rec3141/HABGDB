@@ -1,0 +1,2 @@
+date:    2026-06-11
+notes:   2 sequences: ON840103.1 (NRPS/PKS cluster, 36940 bp) + MT225528.1 (AETX cluster, 9229 bp). A. hydrillicola Thurmond2011. 16S/ITS sequences excluded.
