@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HABGDB — Harmful Algal Bloom Genomic Database</title>
+<style>
+  :root { --fg:#1f2937; --muted:#475569; --accent:#b45309; --rule:#e2e8f0; }
+  html { color-scheme: light; }
+  body {
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    color: var(--fg); max-width: 44rem; margin: 3rem auto; padding: 0 1.25rem 4rem;
+  }
+  h1 { font-size: 1.75rem; margin-bottom: 0.25rem; letter-spacing: -0.01em; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; font-style: italic; margin-bottom: 2rem; }
+  h2 { margin-top: 2.5rem; font-size: 1.15rem; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 0.35rem; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--accent); }
+  .card-list { display: grid; gap: 1rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+  .card {
+    border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.25rem;
+    background: #fcfcfd;
+  }
+  .card h3 { font-size: 1rem; margin: 0 0 0.25rem; }
+  .card p  { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.9rem; }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
+  code { font-family: "JetBrains Mono", ui-monospace, monospace; background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.85em; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.75rem; }
+  th, td { text-align: left; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  td.r, th.r { text-align: right; font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .table-wrap { overflow-x: auto; }
+  footer { margin-top: 3rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+</head>
+<body>
+
+<h1>HABGDB</h1>
+<div class="subtitle">The <strong>Harmful Algal Bloom Genomic Database</strong>: a version-controlled record of the cyanotoxin biosynthetic-gene-cluster reference panel used for shotgun-metagenomic HAB surveillance.</div>
+
+<h2>What this is</h2>
+<p>
+danaSeq's <code>nanopore_live</code> pipeline maps every nanopore read against a set of toxin references, one per compound: microcystin, cylindrospermopsin, saxitoxin, anatoxin-a, nodularin, guanitoxin and aetokthonotoxin. Each reference joins the biosynthetic gene cluster (BGC) sequences from several producer taxa into one multi-FASTA, so a hit counts towards that toxin whichever producer it came from. The panel was hand-built on 2026-06-11 from NCBI nuccore searches and until now lived only as unversioned files in the pipeline's <code>mapping_refs/</code> directory.
+</p>
+<p>
+HABGDB records exactly what is in that panel: every accession.version and subrange, with organism, title, length, a sequence hash and any hard-masking. It also keeps the original search queries and the inclusion and exclusion notes. <code>build_hab_refs.py</code> rebuilds all seven references from NCBI. The rebuild is byte-identical to the live panel, including the minimap2 indexes.
+</p>
+<p>
+HABGDB sits alongside <a href="https://github.com/rec3141/AISGDB">AISGDB</a> (aquatic invasive species) and <a href="https://github.com/rec3141/SARGDB">SARGDB</a> (species at risk). All three use the same <code>mapping_refs/&lt;name&gt;/</code> layout, and <code>meta.json</code> <code>category</code> decides which view a reference appears in. This repo covers the <code>"HAB"</code> references, which show up in the SPA's HABs view.
+</p>
+
+<h2>Inventory</h2>
+<ul class="card-list">
+
+  <li class="card">
+    <h3><a href="hab_inventory.html">HAB toxin reference panel → inventory</a></h3>
+    <p>For each toxin: the producer genera in the panel (current NCBI Taxonomy, with older title genera in brackets), record and base-pair counts, the reference accessions named in <code>meta.json</code>, the complete BGCs, known gaps and exclusion decisions quoted from the reference's own notes, and computed QA flags. A filterable, sortable table below lists all 102 panel sequences. Outputs: <a href="hab_inventory.tsv">TSV</a> · <a href="hab_inventory.json">JSON</a>.</p>
+    <div class="meta">7 toxins · 102 records (100 unique seqids) · 1.72 Mb · 35 complete BGCs · 4 partial / multi-gene · 16 single-gene complete CDS · 45 single-gene fragments</div>
+  </li>
+
+</ul>
+
+<h2>Panel at a glance</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Toxin</th><th>Producer genera in panel (n seqids)</th><th class="r">Records</th><th class="r">bp</th></tr></thead>
+  <tbody>
+    <tr><td><a href="hab_inventory.html#microcystin">Microcystin</a></td><td><em>Microcystis</em> (15), <em>Anabaena</em> (4), <em>Phormidium</em> (2), <em>Kaarinaea</em> (1), <em>Planktothrix</em> (1)</td><td class="r">25</td><td class="r">1,107,436</td></tr>
+    <tr><td><a href="hab_inventory.html#cylindrospermopsin">Cylindrospermopsin</a></td><td><em>Cylindrospermopsis</em> (13), <em>Raphidiopsis</em> (2), <em>Aphanizomenon</em> (1), <em>Kamptonema</em> (1)</td><td class="r">17</td><td class="r">317,922</td></tr>
+    <tr><td><a href="hab_inventory.html#saxitoxin">Saxitoxin</a></td><td><em>Dolichospermum</em> (21), <em>Cylindrospermopsis</em> (5), <em>Aphanizomenon</em> (4), <em>Microseira</em> (4)</td><td class="r">34</td><td class="r">65,608</td></tr>
+    <tr><td><a href="hab_inventory.html#anatoxin_a">Anatoxin-a</a></td><td><em>Cuspidothrix</em> (14), <em>Kamptonema</em> (3)</td><td class="r">17</td><td class="r">44,388</td></tr>
+    <tr><td><a href="hab_inventory.html#nodularin">Nodularin</a></td><td><em>Nostoc</em> (5), <em>Nodularia</em> (1)</td><td class="r">6</td><td class="r">120,982</td></tr>
+    <tr><td><a href="hab_inventory.html#guanitoxin">Guanitoxin</a></td><td><em>Sphaerospermopsis</em> (1)</td><td class="r">1</td><td class="r">13,572</td></tr>
+    <tr><td><a href="hab_inventory.html#aetokthonotoxin">Aetokthonotoxin</a></td><td><em>Aetokthonos</em> (2)</td><td class="r">2</td><td class="r">46,169</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Rebuilding the references</h2>
+<p>The accession lists in <code>refs/&lt;ref&gt;/accessions.tsv</code> are the source of truth. <code>.fna</code> and <code>.idx</code> files are never committed.</p>
+<pre style="background:#f1f5f9;padding:0.75rem 1rem;border-radius:4px;overflow-x:auto;font-size:0.85em"><code># fetch from NCBI (retry + backoff), write .fna / contigs.json / meta.json,
+# and build the minimap2 index (minimap2 -t 4 -d &lt;ref&gt;.idx &lt;ref&gt;.fna)
+python3 build_hab_refs.py --outdir build
+
+# ... and verify against the live panel (read-only)
+python3 build_hab_refs.py --outdir build \
+    --compare-to /data/scratch/refdbs/mapping_refs \
+    --report data/reproducibility_check.tsv
+
+# refresh the QA tables and the inventory page
+python3 panel_redundancy.py --build-dir build
+python3 hab_inventory.py</code></pre>
+
+<footer>
+Repo: <a href="https://github.com/rec3141/HABGDB">github.com/rec3141/HABGDB</a> ·
+Siblings: <a href="https://github.com/rec3141/AISGDB">AISGDB</a> · <a href="https://github.com/rec3141/SARGDB">SARGDB</a> ·
+Pipeline: <a href="https://github.com/rec3141/danaSeq">github.com/rec3141/danaSeq</a> ·
+Live SPA: <a href="https://microscape.app/complete/">microscape.app/complete/</a> (HABs tab)
+</footer>
+
+</body>
+</html>
