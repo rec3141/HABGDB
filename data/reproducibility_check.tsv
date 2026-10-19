@@ -1,0 +1,51 @@
+# build_hab_refs.py --compare-to /data/scratch/refdbs/mapping_refs (2026-10-19, 2.28-r1209)
+ref	check	result	detail
+microcystin	fna_sequences	PASS	25 built vs 25 live records
+microcystin	fna_order	PASS	same record order
+microcystin	fna_headers	PASS	identical descriptions
+microcystin	contigs_json	PASS	identical content; byte-identical
+microcystin	meta.json	PASS	byte-identical
+microcystin	source.txt	PASS	byte-identical
+microcystin	idx	PASS	byte-identical
+cylindrospermopsin	fna_sequences	PASS	17 built vs 17 live records
+cylindrospermopsin	fna_order	PASS	same record order
+cylindrospermopsin	fna_headers	PASS	identical descriptions
+cylindrospermopsin	contigs_json	PASS	identical content; byte-identical
+cylindrospermopsin	meta.json	PASS	byte-identical
+cylindrospermopsin	source.txt	PASS	byte-identical
+cylindrospermopsin	idx	PASS	byte-identical
+saxitoxin	fna_sequences	PASS	34 built vs 34 live records
+saxitoxin	fna_order	PASS	same record order
+saxitoxin	fna_headers	PASS	identical descriptions
+saxitoxin	contigs_json	PASS	identical content; byte-identical
+saxitoxin	meta.json	PASS	byte-identical
+saxitoxin	source.txt	PASS	byte-identical
+saxitoxin	idx	PASS	byte-identical
+anatoxin_a	fna_sequences	PASS	17 built vs 17 live records
+anatoxin_a	fna_order	PASS	same record order
+anatoxin_a	fna_headers	PASS	identical descriptions
+anatoxin_a	contigs_json	PASS	identical content; byte-identical
+anatoxin_a	meta.json	PASS	byte-identical
+anatoxin_a	source.txt	PASS	byte-identical
+anatoxin_a	idx	PASS	byte-identical
+nodularin	fna_sequences	PASS	6 built vs 6 live records
+nodularin	fna_order	PASS	same record order
+nodularin	fna_headers	PASS	identical descriptions
+nodularin	contigs_json	PASS	identical content; byte-identical
+nodularin	meta.json	PASS	byte-identical
+nodularin	source.txt	PASS	byte-identical
+nodularin	idx	PASS	byte-identical
+guanitoxin	fna_sequences	PASS	1 built vs 1 live records
+guanitoxin	fna_order	PASS	same record order
+guanitoxin	fna_headers	PASS	identical descriptions
+guanitoxin	contigs_json	PASS	identical content; byte-identical
+guanitoxin	meta.json	PASS	byte-identical
+guanitoxin	source.txt	PASS	byte-identical
+guanitoxin	idx	PASS	byte-identical
+aetokthonotoxin	fna_sequences	PASS	2 built vs 2 live records
+aetokthonotoxin	fna_order	PASS	same record order
+aetokthonotoxin	fna_headers	PASS	identical descriptions
+aetokthonotoxin	contigs_json	PASS	identical content; byte-identical
+aetokthonotoxin	meta.json	PASS	byte-identical
+aetokthonotoxin	source.txt	PASS	byte-identical
+aetokthonotoxin	idx	PASS	byte-identical
